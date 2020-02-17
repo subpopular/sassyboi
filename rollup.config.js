@@ -35,7 +35,7 @@ export default {
       modules: false,
       syntax: 'postcss-scss',
       plugins: [
-        // cssImports(),
+        cssImports()
 
         // scssVariables({
         //   variables: require('./vars')
