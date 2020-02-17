@@ -1,0 +1,42 @@
+@import '../base';
+
+.u-inline {
+  display: flex;
+}
+
+.u-inline__item {
+  flex-shrink: 0;
+}
+
+@media(max-width: calc(map-get($breakpoints, 1) - 1)px) {
+  .u-box--display-none-0:first-child + .u-inline__item {
+    margin-left: 0;
+  }
+}
+@media (min-width: calc(map-get($breakpoints, 1)px)) and (max-width: calc((map-get($breakpoints, 2) - 1))px) {
+  .u-box--display-none-1:first-child + .u-inline__item {
+    margin-left: 0;
+  }
+}
+@media (min-width: calc(map-get($breakpoints, 2)px)) {
+  .u-box--display-none-2:first-child + .u-inline__item {
+    margin-left: 0;
+  }
+}
+
+.u-inline__divider {
+  border-left: 1px solid map-get($backgroundColors, subtle);
+  min-height: 14px;
+}
+
+@each $justifyValue in (flex-start, flex-end, center, space-around, space-between, stretch) {
+  .u-inline--justify-#{$justifyValue} {
+    justify-content: $justifyValue;
+  }
+}
+
+@each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+  .u-inline--align-#{$alignValue} {
+    align-items: $alignValue;
+  }
+}

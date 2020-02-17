@@ -1,0 +1,64 @@
+@import '../base';
+
+.u-button {
+  display: block;
+  border: 0;
+  width: 100%;
+
+  &.u-button--icon-only {
+    width: auto;
+
+    &.u-button--size-regular {
+      width: calc($space-xlarge * 1px);
+      height: calc($space-xlarge * 1px);
+    }
+
+    &.u-button--size-small {
+      width: calc($space-largeish * 1px);
+      height: calc($space-largeish * 1px);
+    }
+
+    &.u-button--size-xsmall {
+      width: calc($space-large * 1px);
+      height: calc($space-large * 1px);
+    }
+  }
+
+  & .u-text--standard,
+  & .u-text--small {
+    line-height: calc($space-gutter * 1px);
+  }
+}
+
+.u-button--weight-link {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include linkStyle();
+
+  /* &:before {
+    content: '';
+    position: absolute;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    min-height: 48px;
+    min-width: 48px;
+    height: 100%;
+    top: 50%;
+    left: -10px;
+    right: -10px;
+  } */
+}
+
+/* TODO: consider making a component for pill button/link */
+.u-button--weight-pill {
+  border-radius: 24px;
+  & .u-button--size-xsmall {
+    border-radius: 18px;
+  }
+  & .u-button--size-small {
+    border-radius: 20px;
+  }
+}

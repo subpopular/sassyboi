@@ -1,0 +1,224 @@
+$font-family: 'Work Sans', sans-serif;
+$header-font-family: 'Frank Ruhl Libre', sans-serif;
+
+$thin-font-weight: 100;
+$extra-light-font-weight: 200;
+$light-font-weight: 300;
+$regular-font-weight: 400;
+$medium-font-weight: 500;
+$semi-bold-font-weight: 600;
+$bold-font-weight: 700;
+
+$grid: 4;
+
+$breakpoints: (
+  0: 320,
+  1: 560,
+  2: 1024,
+);
+
+$contentWidth: (
+  medium: 940,
+  large: 1280,
+  max: 1440,
+);
+
+$font-scale: (
+  text: (
+    descenderHeightScale: 0.1922,
+    capHeight: 0.69231,
+  ),
+  heading: (
+    descenderHeightScale: 0.1764,
+    capHeight: 0.70588,
+  ),
+);
+
+$spacingKeys: (xxsmall xsmall small gutter medium large xlarge xxlarge);
+
+$spacingMap: (
+  none: 0,
+  xxsmall: calc($grid * 1),
+  xsmall: calc($grid * 2),
+  smallish: calc($grid * 3),
+  small: calc($grid * 4),
+  gutter: calc($grid * 6),
+  medium: calc($grid * 8),
+  large: calc($grid * 9),
+  largeish: calc($grid * 10),
+  xlarge: calc($grid * 12),
+  xxlarge: calc($grid * 16),
+);
+
+$space-xxsmall: map-get($spacingMap, xxsmall);
+$space-xsmall: map-get($spacingMap, xsmall);
+$space-smallish: map-get($spacingMap, smallish);
+$space-small: map-get($spacingMap, small);
+$space-gutter: map-get($spacingMap, gutter);
+$space-medium: map-get($spacingMap, medium);
+$space-large: map-get($spacingMap, large);
+$space-largeish: map-get($spacingMap, largeish);
+$space-xlarge: map-get($spacingMap, xlarge);
+$space-xxlarge: map-get($spacingMap, xxlarge);
+
+$base-colors: (
+  brand: #000,
+  brandAccent: green,
+  formAccent: red,
+  white: #fff,
+  focus: rgba(#1e90ff, 0.7),
+  positive: #138a08,
+  critical: #e60278,
+  info: #1e468c,
+  promote: #af3534,
+  neutral: #1c1c1c,
+  neutralInverted: #ffffff,
+  black: #1c1c1c,
+  link: #114bd2,
+  linkVisited: #733d90,
+  secondary: #a0a0a0,
+  secondaryInverted: hsla(0, 0%, 100%, 0.65),
+  subtle: #eee,
+);
+
+$colors: (
+  foreground: (
+    link: map-get($base-colors, link),
+    linkHover: map-get($base-colors, link),
+    linkVisited: map-get($base-colors, linkVisited),
+    neutral: map-get($base-colors, neutral),
+    neutralInverted: map-get($base-colors, white),
+    formAccent: map-get($base-colors, formAccent),
+    critical: map-get($base-colors, critical),
+    info: map-get($base-colors, info),
+    promote: map-get($base-colors, promote),
+    positive: map-get($base-colors, positive),
+    secondary: map-get($base-colors, secondary),
+    secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
+    subtle: map-get($base-colors, subtle),
+  ),
+  background: (
+    body: #eee,
+    brand: map-get($base-colors, brand),
+    input: map-get($base-colors, white),
+    inputDisabled: #eee,
+    brandAccent: map-get($base-colors, brandAccent),
+    formAccent: map-get($base-colors, formAccent),
+    formAccentDisabled: #ccc,
+    selection: #f1f7ff,
+    card: map-get($base-colors, white),
+    critical: map-get($base-colors, critical),
+    info: map-get($base-colors, info),
+    promote: map-get($base-colors, promote),
+    positive: map-get($base-colors, positive),
+    neutral: map-get($base-colors, neutral),
+    subtle: map-get($base-colors, subtle),
+  ),
+);
+
+
+$textSizes: (
+  xsmall: (
+    mobile: (
+      size: 12,
+      rows: 4,
+    ),
+    tablet: (
+      size: 12,
+      rows: 4,
+    ),
+  ),
+  small: (
+    mobile: (
+      size: 13,
+      rows: 5,
+    ),
+    tablet: (
+      size: 13,
+      rows: 5,
+    ),
+  ),
+  standard: (
+    mobile: (
+      size: 15,
+      rows: 5,
+    ),
+    tablet: (
+      size: 15,
+      rows: 5,
+    ),
+  ),
+  large: (
+    mobile: (
+      size: 18,
+      rows: 6,
+    ),
+    tablet: (
+      size: 18,
+      rows: 6,
+    ),
+  ),
+  xlarge: (
+    mobile: (
+      size: 22,
+      rows: 8,
+    ),
+    tablet: (
+      size: 22,
+      rows: 8,
+    ),
+  ),
+);
+
+$headingSizes: (
+  xsmall: (
+    mobile: (
+      size: 14,
+      rows: 5,
+    ),
+    tablet: (
+      size: 14,
+      rows: 5,
+    ),
+  ),
+  small: (
+    mobile: (
+      size: 16,
+      rows: 5,
+    ),
+    tablet: (
+      size: 16,
+      rows: 5,
+    ),
+  ),
+  standard: (
+    mobile: (
+      size: 18,
+      rows: 6,
+    ),
+    tablet: (
+      size: 22,
+      rows: 6,
+    ),
+  ),
+  large: (
+    mobile: (
+      size: 22,
+      rows: 7,
+    ),
+    tablet: (
+      size: 28,
+      rows: 9,
+    ),
+  ),
+  xlarge: (
+    mobile: (
+      size: 24,
+      rows: 9,
+    ),
+    tablet: (
+      size: 34,
+      rows: 9,
+    ),
+  ),
+);
