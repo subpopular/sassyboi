@@ -61,7 +61,7 @@ export default {
 
         nesting()
       ],
-      extract: true
+      extract: false
     }),
     url(),
     svgr(),
