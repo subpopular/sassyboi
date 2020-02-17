@@ -35,33 +35,33 @@ export default {
       modules: false,
       syntax: 'postcss-scss',
       plugins: [
-        cssImports(),
+        // cssImports(),
 
-        scssVariables({
-          variables: require('./vars')
-        }),
+        // scssVariables({
+        //   variables: require('./vars')
+        // }),
 
-        mapGet(),
-        calc({mediaQueries: true}),
+        // mapGet(),
+        // calc({mediaQueries: true}),
 
-        functions({
-          functions: {
-            getRed: () => {
-              return 'red'
-            },
-            isLight: (color) => {
-              console.log(color)
-              return isLight(color)
-            },
-            mod: (a, b) => {
-              return a % b
-            }
-          }
-        }),
+        // functions({
+        //   functions: {
+        //     getRed: () => {
+        //       return 'red'
+        //     },
+        //     isLight: (color) => {
+        //       console.log(color)
+        //       return isLight(color)
+        //     },
+        //     mod: (a, b) => {
+        //       return a % b
+        //     }
+        //   }
+        // }),
 
-        nesting()
+        // nesting()
       ],
-      extract: false
+      extract: true
     }),
     url(),
     svgr(),
