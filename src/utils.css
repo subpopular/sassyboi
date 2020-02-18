@@ -1,29 +1,20 @@
 @mixin textAdjust($size: 13, $rows: 4, $scaleKey: text) {
-  $scale: map-get($font-scale, $scaleKey);
-  $descenderHeightScale: map-get($scale, descenderHeightScale);
-  $capHeight: map-get($scale, capHeight);
+  $lineHeight: $grid * $rows;
 
-  $lineHeight: calc($grid * $rows);
-  $lineHeightScale: calc($lineHeight / $size);
-  $typeOffset: calc(($lineHeightScale - 1) / 2 + $descenderHeightScale);
-  $topSpace: calc($lineHeight - $capHeight * $size);
-  $halfGrid: calc($grid / 2);
-  $gridMod: mod($topSpace, $halfGrid);
-  $heightCorrectionRaw: calc($topSpace - $gridMod);
-  $heightCorrection: calc($heightCorrectionRaw + 1);
-  $marginTop: calc($heightCorrection * -1);
+  $transform: baseliner($size, $rows, $scaleKey, transform);
+  $marginTop: baseliner($size, $rows, $scaleKey, marginTop);
 
   font-size: calc($size * 1px);
   line-height: calc($lineHeight * 1px);
 
   &.u-text--baseline {
-    transform: translateY(calc($typeOffset * 1em));
+    transform: $transform;
     padding-top: 1px;
     &:before {
       content: '';
       display: block;
       height: 0;
-      margin-top: calc($marginTop * 1px);
+      margin-top: $marginTop;
     }
   }
 }

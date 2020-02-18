@@ -5,29 +5,18 @@ import nesting from 'postcss-nesting'
 import mapGet from 'postcss-map-get'
 import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
-import {isLight, mod} from './style-functions'
-
-const plugins = [
-  cssImports,
-  scssVariables,
-  mapGet,
-  calc,
-  functions,
-  nesting
-]
+import {isLight, mod, baseliner} from './style-functions'
 
 export default postcss.plugin('postcss-sassyboi', rawopts => {
-  const opts = Object.assign({
-    mediaQueries: true,
-    functions: { isLight, mod }
-  }, rawopts)
-
   // initialize all plugins
-  const initializedPlugins = plugins.map(
-    plugin => {
-      return plugin(opts)
-    }
-  )
+  const initializedPlugins = [
+    cssImports(),
+    scssVariables({variables: rawopts.variables}),
+    mapGet(),
+    calc({mediaQueries: true}),
+    functions({functions: { isLight, mod, baseliner: baseliner(rawopts.variables) }}),
+    nesting()
+  ]
 
   // process css with all plugins
   return (root, result) => {

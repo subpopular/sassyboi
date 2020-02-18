@@ -1,0 +1,47 @@
+@supports (grid-area: auto) {
+  .u-cols {
+    display: grid;
+  }
+
+  @each $bp $i in $breakpoints {
+    @if $i == 0 {
+      @for $j from 1 through 16 {
+        .u-cols--cols-#{$j}-0 {
+          grid-template-columns: repeat($j, 1fr);
+        }
+        .u-col--span-#{$j}-0 {
+          grid-column: span $j;
+        }
+      }
+    } @else {
+      @media (min-width: #{$bp}px) {
+        @for $j from 1 through 16 {
+          .u-cols--cols-#{$j}-#{$i} {
+            grid-template-columns: repeat($j, 1fr);
+          }
+          .u-col--span-#{$j}-#{$i} {
+            grid-column: span $j;
+          }
+        }
+      }
+    }
+  }
+
+  @media(max-width: calc(map-get($breakpoints, 1) - 1)px) {
+    .u-cols--collapse-0 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: calc(map-get($breakpoints, 2) - 1)px) {
+    .u-cols--collapse-1 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @each $value $space in $spacingMap {
+    .u-cols--gap-#{$space} {
+      grid-gap: $value + px;
+    }
+  }
+}
