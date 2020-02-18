@@ -34,3 +34,7 @@ export const isLight = (color) => {
     return false
   }
 }
+
+export const mod = (a, b) => {
+  return a % b
+}
