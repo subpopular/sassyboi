@@ -54,13 +54,13 @@ const Box = React.forwardRef(
       boxShadow,
       display,
       flexGrow,
-      size
+      size,
     })
 
     const element = React.createElement(as, {
       className: cx(boxStyles, className),
       ref,
-      ...props
+      ...props,
     })
 
     return renderBackgroundProvider(background, element)
@@ -77,12 +77,15 @@ const spacingProps = [
   'large',
   'largeish',
   'xlarge',
-  'xxlarge'
+  'xxlarge',
 ]
 
 Box.propTypes = {
   as: t.element,
   background: t.oneOf(['brand', 'critical']),
+  /**
+   * Applies padding value to all sides.
+   */
   padding: t.oneOf(spacingProps),
   paddingTop: t.oneOf(spacingProps),
   paddingRight: t.oneOf(spacingProps),
@@ -101,7 +104,7 @@ Box.propTypes = {
   display: t.string,
   flexGrow: t.number,
   size: t.number,
-  className: t.string
+  className: t.string,
 }
 
 export default Box

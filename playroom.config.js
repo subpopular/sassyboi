@@ -10,6 +10,7 @@ module.exports = {
   widths: [320, 375, 768, 1024],
   port: 9000,
   openBrowser: true,
+  snippets: './playroom-snippets.js',
   exampleCode: `
     <Button>
       Hello World!
@@ -25,10 +26,10 @@ module.exports = {
             {
               loader: 'svg-sprite-loader',
               options: {
-                publicPath: ''
-              }
-            }
-          ]
+                publicPath: '',
+              },
+            },
+          ],
         },
         {
           test: /\.css?$/,
@@ -42,17 +43,15 @@ module.exports = {
                 syntax: 'postcss-scss',
                 plugins: [
                   postcssSassyboi({
-                    variables: require('./vars.js')
-                  })
-                ]
-              }
-            }
-          ]
-        }
-      ]
+                    variables: require('./vars.js'),
+                  }),
+                ],
+              },
+            },
+          ],
+        },
+      ],
     },
-    plugins: [
-      new SpriteLoaderPlugin()
-    ]
-  })
+    plugins: [new SpriteLoaderPlugin()],
+  }),
 }

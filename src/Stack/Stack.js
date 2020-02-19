@@ -9,8 +9,7 @@ const Stack = ({
   space = 'gutter',
   align = 'stretch',
   className,
-  dividers,
-  width,
+  dividers = false,
   children,
   ...props
 }) => {
@@ -32,14 +31,14 @@ const Stack = ({
                 <Box
                   {...(child.props.display && {display: child.props.display})}
                   marginTop={space}
-                  className='u-stack__divider'
+                  className="u-stack__divider"
                 />
               )}
 
               <Box
                 {...(child.props.display && {display: child.props.display})}
                 marginTop={i > 0 && space}
-                className='u-stack__item'
+                className="u-stack__item"
               >
                 {child}
               </Box>

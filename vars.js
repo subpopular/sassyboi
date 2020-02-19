@@ -1,5 +1,14 @@
 const grid = 4
-const spacingKeys = ['xxsmall', 'xsmall', 'small', 'gutter', 'medium', 'large', 'xlarge', 'xxlarge']
+const spacingKeys = [
+  'xxsmall',
+  'xsmall',
+  'small',
+  'gutter',
+  'medium',
+  'large',
+  'xlarge',
+  'xxlarge',
+]
 const spacingMap = {
   none: 0,
   xxsmall: grid * 1,
@@ -11,12 +20,12 @@ const spacingMap = {
   large: grid * 9,
   largeish: grid * 10,
   xlarge: grid * 12,
-  xxlarge: grid * 16
+  xxlarge: grid * 16,
 }
 
 const baseColors = {
   brand: '#000',
-  brandAccent: 'green',
+  brandAccent: 'rebeccapurple',
   formAccent: 'red',
   white: '#fff',
   focus: 'rgba(#1e90ff, 0.7)',
@@ -31,7 +40,7 @@ const baseColors = {
   linkVisited: '#733d90',
   secondary: '#a0a0a0',
   secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
-  subtle: '#eee'
+  subtle: '#eee',
 }
 
 const colors = {
@@ -48,7 +57,7 @@ const colors = {
     positive: baseColors.positive,
     secondary: baseColors.secondary,
     secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
-    subtle: baseColors.subtle
+    subtle: baseColors.subtle,
   },
   background: {
     body: '#eee',
@@ -65,8 +74,8 @@ const colors = {
     promote: baseColors.promote,
     positive: baseColors.positive,
     neutral: baseColors.neutral,
-    subtle: baseColors.subtle
-  }
+    subtle: baseColors.subtle,
+  },
 }
 
 module.exports = {
@@ -86,24 +95,24 @@ module.exports = {
   breakpoints: {
     0: 320,
     1: 560,
-    2: 1024
+    2: 1024,
   },
 
   contentWidth: {
     medium: 940,
     large: 1280,
-    max: 1440
+    max: 1440,
   },
 
   'font-scale': {
     text: {
       descenderHeightScale: 0.1922,
-      capHeight: 0.69231
+      capHeight: 0.69231,
     },
     heading: {
       descenderHeightScale: 0.1764,
-      capHeight: 0.70588
-    }
+      capHeight: 0.70588,
+    },
   },
 
   spacingKeys,
@@ -129,106 +138,105 @@ module.exports = {
     xsmall: {
       mobile: {
         size: 12,
-        rows: 4
+        rows: 4,
       },
       tablet: {
         size: 12,
-        rows: 4
-      }
+        rows: 4,
+      },
     },
     small: {
       mobile: {
         size: 13,
-        rows: 5
+        rows: 5,
       },
       tablet: {
         size: 13,
-        rows: 5
-      }
+        rows: 5,
+      },
     },
     standard: {
       mobile: {
         size: 15,
-        rows: 5
+        rows: 5,
       },
       tablet: {
         size: 15,
-        rows: 5
-      }
+        rows: 5,
+      },
     },
     large: {
       mobile: {
         size: 18,
-        rows: 6
+        rows: 6,
       },
       tablet: {
         size: 18,
-        rows: 6
-      }
+        rows: 6,
+      },
     },
     xlarge: {
       mobile: {
         size: 22,
-        rows: 8
+        rows: 8,
       },
       tablet: {
         size: 22,
-        rows: 8
-      }
-    }
+        rows: 8,
+      },
+    },
   },
 
   headingSizes: {
     xsmall: {
       mobile: {
         size: 14,
-        rows: 5
+        rows: 5,
       },
       tablet: {
         size: 14,
-        rows: 5
-      }
+        rows: 5,
+      },
     },
     small: {
       mobile: {
         size: 16,
-        rows: 5
+        rows: 5,
       },
       tablet: {
         size: 16,
-        rows: 5
-      }
+        rows: 5,
+      },
     },
     standard: {
       mobile: {
         size: 18,
-        rows: 6
+        rows: 6,
       },
       tablet: {
         size: 22,
-        rows: 6
-      }
+        rows: 6,
+      },
     },
     large: {
       mobile: {
         size: 22,
-        rows: 7
+        rows: 7,
       },
       tablet: {
         size: 28,
-        rows: 9
-      }
+        rows: 9,
+      },
     },
     xlarge: {
       mobile: {
         size: 24,
-        rows: 9
+        rows: 9,
       },
       tablet: {
         size: 34,
-        rows: 9
-      }
-    }
-  }
-
+        rows: 9,
+      },
+    },
+  },
 }

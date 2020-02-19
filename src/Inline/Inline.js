@@ -22,7 +22,11 @@ const Inline = ({
     `u-inline--${space}`,
     `u-inline--align-${align}`,
     `u-inline--justify-${justify}`,
-    {'u-inline--wrap': wrap, 'u-inline--collapse-1': collapseBelow === 'tablet', 'u-inline--collapse-2': collapseBelow === 'desktop'},
+    {
+      'u-inline--wrap': wrap,
+      'u-inline--collapse-1': collapseBelow === 'tablet',
+      'u-inline--collapse-2': collapseBelow === 'desktop',
+    },
     className
   )
 
@@ -35,15 +39,16 @@ const Inline = ({
             <React.Fragment key={child.key}>
               {i > 0 && dividers && (
                 <Box
-                  className='u-inline__divider'
+                  className="u-inline__divider"
                   marginLeft={space}
                   display={child.props && child.props.display}
                 />
               )}
               <Box
-                className='u-inline__item'
+                className="u-inline__item"
                 marginLeft={i > 0 && space}
                 display={child.props && child.props.display}
+                flexGrow={child.props && child.props.flexGrow}
               >
                 {child}
               </Box>

@@ -10,55 +10,62 @@ import sassyboi from './src/postcss-sassyboi'
 import pkg from './package.json'
 
 const isProduction = process.env.NODE_ENV === 'production'
+const isExampleBuild = process.env.EXAMPLE_BUILD === 'true'
 
-export default [
-  {
-    input: 'src/index.js',
-    output: [
-      {
-        file: pkg.main,
-        format: 'cjs',
-        sourcemap: true
-      },
-      {
-        file: pkg.module,
-        format: 'es',
-        sourcemap: true
-      }
-    ],
-    plugins: [
-      external(),
-      postcss({
-        modules: false,
-        syntax: 'postcss-scss',
-        plugins: isProduction ? [
-          cssImports()
-        ] : [
-          sassyboi({
-            variables: require('./vars')
-          })
-        ],
-        extract: true
-      }),
-      url(),
-      svgr(),
-      babel({
-        exclude: 'node_modules/**',
-        plugins: [ 'external-helpers' ]
-      }),
-      resolve(),
-      commonjs()
-    ]
-  },
-  {
-    input: 'src/postcss-sassyboi.js',
-    output: {
-      file: 'dist/postcss-sassyboi.js',
+const mainConfig = {
+  input: 'src/index.js',
+  output: [
+    {
+      file: pkg.main,
       format: 'cjs',
-      sourcemap: false
+      sourcemap: true,
     },
-    plugins: [
+    {
+      file: pkg.module,
+      format: 'es',
+      sourcemap: true,
+    },
+  ],
+  plugins: [
+    external(),
+    postcss({
+      modules: false,
+      syntax: 'postcss-scss',
+      plugins:
+        isProduction && !isExampleBuild
+          ? [cssImports()]
+          : [
+              sassyboi({
+                variables: require('./vars'),
+              }),
+            ],
+      extract: true,
+    }),
+    url(),
+    svgr(),
+    babel({
+      exclude: 'node_modules/**',
+      plugins: ['react-docgen'],
+    }),
+    resolve(),
+    commonjs(),
+  ],
+}
 
-    ]
-  }
-]
+const pluginConfig = {
+  input: 'src/postcss-sassyboi.js',
+  output: {
+    file: 'dist/postcss-sassyboi.js',
+    format: 'cjs',
+    sourcemap: false,
+  },
+  plugins: [],
+}
+
+const configs = [mainConfig]
+
+if (isProduction) {
+  configs.push(pluginConfig)
+}
+
+export default configs

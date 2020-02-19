@@ -122,27 +122,15 @@
   }
 
   .tone--neutral-on-#{$tone} {
-    @if isLight($color) == true {
-      color: map-get($base-colors, neutral);
-    } @else {
-      color: map-get($base-colors, neutralInverted);
-    }
+    color: contrast($color);
   }
 
   .tone--secondary-on-#{$tone} {
-    @if isLight($color) == true {
-      color: map-get($base-colors, secondary);
-    } @else {
-      color: map-get($base-colors, secondaryInverted);
-    }
+    color: contrast($color);
   }
 
   .shadow--borderStandard-on-#{$tone} {
-    @if isLight($color) == true {
-      box-shadow: inset 0 0 0 2px map-get($base-colors, secondary);
-    } @else {
-      box-shadow: inset 0 0 0 2px map-get($base-colors, secondaryInverted);
-    }
+    box-shadow: inset 0 0 0 2px contrast($color);
   }
 }
 
