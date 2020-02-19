@@ -34,7 +34,7 @@ class Icon extends React.PureComponent {
 Icon.defaultProps = {
   name: '',
   title: '',
-  prefix: 'pw',
+  prefix: 'sprite_pw',
   style: {}
 }
 

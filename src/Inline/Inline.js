@@ -14,6 +14,7 @@ const Inline = ({
   wrap = false,
   className,
   children,
+  collapseBelow,
   ...props
 }) => {
   const classes = cx(
@@ -21,7 +22,7 @@ const Inline = ({
     `u-inline--${space}`,
     `u-inline--align-${align}`,
     `u-inline--justify-${justify}`,
-    {'u-inline--wrap': wrap},
+    {'u-inline--wrap': wrap, 'u-inline--collapse-1': collapseBelow === 'tablet', 'u-inline--collapse-2': collapseBelow === 'desktop'},
     className
   )
 

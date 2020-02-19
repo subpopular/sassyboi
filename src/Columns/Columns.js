@@ -24,8 +24,8 @@ const Columns = ({
 }) => {
   const classes = cx(
     'u-cols',
-    getResponsiveColsClasses(cols),
-    `u-cols--gap-${gap}`,
+    resolveResponsiveClasses(cols, 'cols'),
+    resolveResponsiveClasses(gap, 'gap'),
     {
       'u-cols--collapse-0': collapse,
       'u-cols--collapse-1': collapseBelowTablet
@@ -42,14 +42,14 @@ const Columns = ({
 
 export default Columns
 
-function getResponsiveColsClasses(cols) {
-  if (cols != null) {
-    if (Array.isArray(cols)) {
-      return cols.map((c, i) => {
-        return `u-cols--cols-${c}-${i}`
+function resolveResponsiveClasses(value, label) {
+  if (value != null) {
+    if (Array.isArray(value)) {
+      return value.map((v, i) => {
+        return `u-cols--${label}-${v}-${i}`
       })
     }
-    return `u-cols--cols-${cols}-0`
+    return `u-cols--${label}-${value}-0`
   }
 }
 

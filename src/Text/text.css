@@ -68,7 +68,7 @@
     $rows: map-get($mobile, rows);
     @include textAdjust($size, $rows, heading);
   }
-  @media(min-width: map-get($breakpoints, 1) + px) {
+  @media(min-width: map-get($breakpoints, 1)px) {
     .u-text-heading--#{$label} {
       $size: map-get($tablet, size);
       $rows: map-get($tablet, rows);
