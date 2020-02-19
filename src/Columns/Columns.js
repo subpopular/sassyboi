@@ -15,6 +15,8 @@ export const Column = ({span, className, children, ...props}) => {
 
 const Columns = ({
   gap = 'gutter',
+  colGap,
+  rowGap,
   cols = 12,
   collapse,
   collapseBelowTablet,
@@ -25,7 +27,8 @@ const Columns = ({
   const classes = cx(
     'u-cols',
     resolveResponsiveClasses(cols, 'cols'),
-    resolveResponsiveClasses(gap, 'gap'),
+    resolveResponsiveClasses(rowGap || gap, 'row-gap'),
+    resolveResponsiveClasses(colGap || gap, 'col-gap'),
     {
       'u-cols--collapse-0': collapse,
       'u-cols--collapse-1': collapseBelowTablet

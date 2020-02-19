@@ -17,6 +17,12 @@
         .u-cols--gap-#{$space}-0 {
           grid-gap: $(value)px;
         }
+        .u-cols--row-gap-#{$space}-0 {
+          grid-row-gap: $(value)px;
+        }
+        .u-cols--col-gap-#{$space}-0 {
+          grid-column-gap: $(value)px;
+        }
       }
     } @else {
       @media (min-width: #{$bp}px) {
@@ -31,6 +37,12 @@
         @each $value $space in $spacingMap {
           .u-cols--gap-#{$space}-#{$i} {
             grid-gap: $(value)px;
+          }
+          .u-cols--row-gap-#{$space}-#{$i} {
+            grid-row-gap: $(value)px;
+          }
+          .u-cols--col-gap-#{$space}-#{$i} {
+            grid-column-gap: $(value)px;
           }
         }
       }
