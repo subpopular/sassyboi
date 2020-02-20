@@ -11,17 +11,42 @@ export default [
   {
     group: 'Button',
     name: 'Default',
-    code: `<Button>Press Me</Button>`,
+    code: `<Box padding="small"><Button>Press Me</Button></Box>`,
   },
   {
     group: 'Button',
     name: 'Strong',
-    code: `<Button weight="strong">Press Me</Button>`,
+    code: `<Box padding="small"><Button weight="strong">Press Me</Button></Box>`,
   },
   {
     group: 'Button',
     name: 'Weak',
-    code: `<Button weight="weak">Press Me</Button>`,
+    code: `<Box padding="small"><Button weight="weak">Press Me</Button></Box>`,
+  },
+  {
+    group: 'Button',
+    name: 'Icon',
+    code: `<Box padding="small"><Button icon="search">Search</Button></Box>`,
+  },
+  {
+    group: 'Button',
+    name: 'Icon only',
+    code: `<Box padding="small"><Button icon="close"/></Box>`,
+  },
+  {
+    group: 'Columns',
+    name: 'Responsive',
+    code: `<Columns cols={6} padding="large">
+      <Column span={[3, 1]}>
+        <Placeholder height={50} />
+      </Column>
+      <Column span={[3, 4]}>
+        <Placeholder height={50} />
+      </Column>
+      <Column span={[6, 1]}>
+        <Placeholder height={50} />
+      </Column>
+    </Columns>`,
   },
   {
     group: 'Layout',

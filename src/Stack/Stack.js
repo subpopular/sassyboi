@@ -1,27 +1,21 @@
 import React from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
+import * as types from '../types'
 import Box from '../Box/Box'
-
 import './stack.css'
 
 const Stack = ({
-  as = 'div',
   space = 'gutter',
-  align = 'stretch',
-  className,
   dividers = false,
+  className,
   children,
   ...props
 }) => {
-  const classes = cx(
-    'u-stack',
-    `u-stack--${space}`,
-    getResponsiveClasses(align, 'align'),
-    className
-  )
+  const classes = cx('u-stack', `u-stack--${space}`, className)
 
   return (
-    <Box as={as} className={classes} {...props}>
+    <Box className={classes} align="stretch" justify="flex-start" {...props}>
       {React.Children.toArray(children)
         .filter((i) => i)
         .map((child, i) => {
@@ -37,7 +31,7 @@ const Stack = ({
 
               <Box
                 {...(child.props.display && {display: child.props.display})}
-                marginTop={i > 0 && space}
+                marginTop={i > 0 ? space : undefined}
                 className="u-stack__item"
               >
                 {child}
@@ -49,15 +43,15 @@ const Stack = ({
   )
 }
 
-export default Stack
-
-function getResponsiveClasses(value, label) {
-  if (value != null) {
-    if (Array.isArray(value)) {
-      return value.map((v, i) => {
-        return `u-stack--${label}-${v}-${i}`
-      })
-    }
-    return `u-stack--${label}-${value}-0`
-  }
+Stack.propTypes = {
+  /**
+   * Applies spacing between child elements
+   */
+  space: types.spacing,
+  /**
+   * Render a divider between elements
+   */
+  dividers: t.bool,
 }
+
+export default Stack

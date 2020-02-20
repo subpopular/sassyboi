@@ -33,7 +33,7 @@ const Text = ({
       [`tone--${tone}-on-${background}`]: background,
       [`u-text--weight-${weight}`]: weight !== 'regular',
       [`u-text--${size}`]: !heading,
-      [`u-text-heading--${size}`]: heading
+      [`u-text-heading--${size}`]: heading,
     },
     `u-text--align-${align}`,
     className

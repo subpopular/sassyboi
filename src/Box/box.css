@@ -2,53 +2,53 @@
 
 @mixin boxPadding($space, $v, $i) {
   .u-box--p-#{$space}-#{$i} {
-    padding: calc($value * 1px);
+    padding: #{$value}px;
   }
   .u-box--px-#{$space}-#{$i} {
-    padding-left: calc($value * 1px);
-    padding-right: calc($value * 1px);
+    padding-left: #{$value}px;
+    padding-right: #{$value}px;
   }
   .u-box--py-#{$space}-#{$i} {
-    padding-top: calc($value * 1px);
-    padding-bottom: calc($value * 1px);
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
   }
   .u-box--pt-#{$space}-#{$i} {
-    padding-top: calc($value * 1px);
+    padding-top: #{$value}px;
   }
   .u-box--pr-#{$space}-#{$i} {
-    padding-right: calc($value * 1px);
+    padding-right: #{$value}px;
   }
   .u-box--pb-#{$space}-#{$i} {
-    padding-bottom: calc($value * 1px);
+    padding-bottom: #{$value}px;
   }
   .u-box--pl-#{$space}-#{$i} {
-    padding-left: calc($value * 1px);
+    padding-left: #{$value}px;
   }
 }
 
 @mixin boxMargin($space, $v, $i) {
   .u-box--m-#{$space}-#{$i} {
-    margin: calc($value * 1px);
+    margin: #{$value}px;
   }
   .u-box--mx-#{$space}-#{$i} {
-    margin-left: calc($value * 1px);
-    margin-right: calc($value * 1px);
+    margin-left: #{$value}px;
+    margin-right: #{$value}px;
   }
   .u-box--my-#{$space}-#{$i} {
-    margin-top: calc($value * 1px);
-    margin-bottom: calc($value * 1px);
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
   }
   .u-box--mt-#{$space}-#{$i} {
-    margin-top: calc($value * 1px);
+    margin-top: #{$value}px;
   }
   .u-box--mr-#{$space}-#{$i} {
-    margin-right: calc($value * 1px);
+    margin-right: #{$value}px;
   }
   .u-box--mb-#{$space}-#{$i} {
-    margin-bottom: calc($value * 1px);
+    margin-bottom: #{$value}px;
   }
   .u-box--ml-#{$space}-#{$i} {
-    margin-left: calc($value * 1px);
+    margin-left: #{$value}px;
   }
 }
 
@@ -65,13 +65,20 @@
   .u-box--display-flex-#{$i} {
     display: flex;
   }
+  .u-box--display-grid-#{$i} {
+    display: flex;
+  }
 }
 
 @mixin boxSize($space, $v, $i) {
   .u-box--size-#{$space}-#{$i} {
-    width: calc($value * 1px);
-    height: calc($value * 1px);
+    width: #{$value}px;
+    height: #{$value}px;
   }
+}
+
+.u-box--wrap {
+  flex-wrap: wrap;
 }
 
 @each $bp $i in $breakpoints {
@@ -82,6 +89,20 @@
       @include boxSize($space, $value, 0);
     }
     @include boxDisplay(0);
+    @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+      .u-box--alignItems-#{$alignValue}-0,
+      .u-box--align-#{$alignValue}-0 {
+        align-items: $alignValue;
+      }
+    }
+    @each $justifyValue
+      in (flex-start, flex-end, center, space-around, space-between, stretch)
+    {
+      .u-box--justifyContent-#{$justifyValue}-0,
+      u-box--justify-#{$justifyValue}-0 {
+        justify-content: $justifyValue;
+      }
+    }
     @for $k from 1 through 5 {
       .u-box--grow-#{$k}-0 {
         flex-grow: $k;
@@ -95,6 +116,20 @@
         @include boxSize($space, $value, $i);
       }
       @include boxDisplay($i);
+      @each $alignValue in (flex-start, flex-end, center, baseline, stretch) {
+        .u-box--alignItems-#{$alignValue}-#{$i},
+        .u-box--align-#{$alignValue}-#{$i} {
+          align-items: $alignValue;
+        }
+      }
+      @each $justifyValue
+        in (flex-start, flex-end, center, space-around, space-between, stretch)
+      {
+        .u-box--justifyContent-#{$justifyValue}-#{$i},
+        u-box--justify-#{$justifyValue}-#{$i} {
+          justify-content: $justifyValue;
+        }
+      }
       @for $k from 1 through 5 {
         .u-box--grow-#{$k}-#{$i} {
           flex-grow: $k;

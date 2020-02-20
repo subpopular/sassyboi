@@ -14,7 +14,7 @@ export default postcss.plugin('postcss-sassyboi', (rawopts) => {
     cssImports(),
     scssVariables({variables: rawopts.variables}),
     mapGet(),
-    calc({mediaQueries: true}),
+    calc({mediaQueries: true, selectors: true}),
     functions({
       functions: {isLight, mod, baseliner: baseliner(rawopts.variables)},
     }),

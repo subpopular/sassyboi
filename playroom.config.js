@@ -7,14 +7,20 @@ module.exports = {
 
   // Optional:
   title: 'Sassyboi',
-  widths: [320, 375, 768, 1024],
+  widths: [375, 768, 1024],
   port: 9000,
-  openBrowser: true,
+  openBrowser: false,
   snippets: './playroom-snippets.js',
   exampleCode: `
-    <Button>
-      Hello World!
-    </Button>
+    <Stack padding={["large", "xlarge"]} align="center">
+      <Text heading size="large">
+        Don't sass me!
+      </Text>
+      <Inline space="small">
+        <Button>Increase sass</Button>
+        <Button weight="weak">Refrain</Button>
+      </Inline>
+    </Stack>
   `,
   webpackConfig: () => ({
     module: {
@@ -43,7 +49,7 @@ module.exports = {
                 syntax: 'postcss-scss',
                 plugins: [
                   postcssSassyboi({
-                    variables: require('./vars.js'),
+                    variables: require('./sassyboi.config.js'),
                   }),
                 ],
               },

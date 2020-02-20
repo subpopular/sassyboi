@@ -21,8 +21,7 @@ a {
 }
 
 .u-cols.props-table {
-  grid-template-columns: 120px 250px 100px 1fr;
-  grid-row-gap: 24px;
+  grid-template-columns: 120px 270px 80px 1fr;
   align-items: center;
 }
 
@@ -30,17 +29,22 @@ a {
 }
 
 .u-box.code {
-  padding: 1px 5px;
+  padding: 0px 5px;
   border-radius: 3px;
 }
 
 .propCodes {
   display: flex;
   flex-wrap: wrap;
+  margin: -3px;
+}
+
+.code {
+  background: rgb(248, 248, 248);
+  border: 1px solid #dee3fb;
 }
 
 .propCodes .code {
-  background: rgb(248, 248, 248);
   margin: 3px;
 }
 

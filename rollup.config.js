@@ -36,7 +36,7 @@ const mainConfig = {
           ? [cssImports()]
           : [
               sassyboi({
-                variables: require('./vars'),
+                variables: require('./sassyboi.config.js'),
               }),
             ],
       extract: true,

@@ -1,5 +1,6 @@
 const grid = 4
 const spacingKeys = [
+  'none',
   'xxsmall',
   'xsmall',
   'small',
@@ -118,6 +119,7 @@ module.exports = {
   spacingKeys,
   spacingMap,
 
+  'space-none': 0,
   'space-xxsmall': spacingMap.xxsmall,
   'space-xsmall': spacingMap.xsmall,
   'space-smallish': spacingMap.smallish,

@@ -1,8 +1,17 @@
+import {resolveReponsiveClassnames} from '../util'
+
+const classes = (value, label) =>
+  resolveReponsiveClassnames('box', value, label)
+
 const useBoxStyles = ({
   as,
   background,
   boxShadow,
   display,
+  alignItems,
+  justifyContent,
+  align,
+  justify,
   flexGrow,
   padding,
   paddingTop,
@@ -18,7 +27,8 @@ const useBoxStyles = ({
   marginLeft,
   marginX,
   marginY,
-  size
+  size,
+  wrap,
 }) => {
   const resolvedPaddingTop = paddingTop || paddingY || padding
   const resolvedPaddingBottom = paddingBottom || paddingY || padding
@@ -30,47 +40,29 @@ const useBoxStyles = ({
   const resolvedMarginLeft = marginLeft || marginX || margin
   const resolvedMarginRight = marginRight || marginX || margin
 
-  const paddingClasses = getResponsiveClasses(padding, 'p')
-  const paddingXClasses =
-    !paddingClasses && getResponsiveClasses(paddingX, 'px')
-  const paddingYClasses =
-    !paddingClasses && getResponsiveClasses(paddingY, 'py')
+  const paddingClasses = classes(padding, 'p')
+  const paddingXClasses = !paddingClasses && classes(paddingX, 'px')
+  const paddingYClasses = !paddingClasses && classes(paddingY, 'py')
   const paddingTopClasses =
-    !paddingClasses &&
-    !paddingYClasses &&
-    getResponsiveClasses(resolvedPaddingTop, 'pt')
+    !paddingClasses && !paddingYClasses && classes(resolvedPaddingTop, 'pt')
   const paddingRightClasses =
-    !paddingClasses &&
-    !paddingXClasses &&
-    getResponsiveClasses(resolvedPaddingRight, 'pr')
+    !paddingClasses && !paddingXClasses && classes(resolvedPaddingRight, 'pr')
   const paddingBottomClasses =
-    !paddingClasses &&
-    !paddingYClasses &&
-    getResponsiveClasses(resolvedPaddingBottom, 'pb')
+    !paddingClasses && !paddingYClasses && classes(resolvedPaddingBottom, 'pb')
   const paddingLeftClasses =
-    !paddingClasses &&
-    !paddingXClasses &&
-    getResponsiveClasses(resolvedPaddingLeft, 'pl')
+    !paddingClasses && !paddingXClasses && classes(resolvedPaddingLeft, 'pl')
 
-  const marginClasses = getResponsiveClasses(margin, 'p')
-  const marginXClasses = !marginClasses && getResponsiveClasses(marginX, 'mx')
-  const marginYClasses = !marginClasses && getResponsiveClasses(marginY, 'my')
+  const marginClasses = classes(margin, 'p')
+  const marginXClasses = !marginClasses && classes(marginX, 'mx')
+  const marginYClasses = !marginClasses && classes(marginY, 'my')
   const marginTopClasses =
-    !marginClasses &&
-    !marginYClasses &&
-    getResponsiveClasses(resolvedMarginTop, 'mt')
+    !marginClasses && !marginYClasses && classes(resolvedMarginTop, 'mt')
   const marginRightClasses =
-    !marginClasses &&
-    !marginXClasses &&
-    getResponsiveClasses(resolvedMarginRight, 'mr')
+    !marginClasses && !marginXClasses && classes(resolvedMarginRight, 'mr')
   const marginBottomClasses =
-    !marginClasses &&
-    !marginYClasses &&
-    getResponsiveClasses(resolvedMarginBottom, 'mb')
+    !marginClasses && !marginYClasses && classes(resolvedMarginBottom, 'mb')
   const marginLeftClasses =
-    !marginClasses &&
-    !marginXClasses &&
-    getResponsiveClasses(resolvedMarginLeft, 'ml')
+    !marginClasses && !marginXClasses && classes(resolvedMarginLeft, 'ml')
 
   return [
     'u-box',
@@ -88,28 +80,19 @@ const useBoxStyles = ({
     marginRightClasses,
     marginBottomClasses,
     marginLeftClasses,
-    getResponsiveClasses(display, 'display'),
-    getResponsiveClasses(flexGrow, 'grow'),
-    getResponsiveClasses(size, 'size'),
-    {[`bg--${background}`]: background},
+    classes(display, 'display'),
+    classes(flexGrow, 'grow'),
+    classes(size, 'size'),
+    classes(alignItems || align, 'alignItems'),
+    classes(justifyContent || justify, 'justifyContent'),
+    {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
     {
       [`shadow--${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),
       [`shadow--${boxShadow}-on-${background}`]:
-        boxShadow && background && background !== 'transparent'
-    }
+        boxShadow && background && background !== 'transparent',
+    },
   ]
 }
 
 export default useBoxStyles
-
-function getResponsiveClasses(value, label) {
-  if (value != null) {
-    if (Array.isArray(value)) {
-      return value.map((v, i) => {
-        return `u-box--${label}-${v}-${i}`
-      })
-    }
-    return `u-box--${label}-${value}-0`
-  }
-}

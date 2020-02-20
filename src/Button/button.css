@@ -9,24 +9,24 @@
     width: auto;
 
     &.u-button--size-regular {
-      width: calc($space-xlarge * 1px);
-      height: calc($space-xlarge * 1px);
+      width: #{$space-xlarge}px;
+      height: #{$space-xlarge}px;
     }
 
     &.u-button--size-small {
-      width: calc($space-largeish * 1px);
-      height: calc($space-largeish * 1px);
+      width: #{$space-largeish}px;
+      height: #{$space-largeish}px;
     }
 
     &.u-button--size-xsmall {
-      width: calc($space-large * 1px);
-      height: calc($space-large * 1px);
+      width: #{$space-large}px;
+      height: #{$space-large}px;
     }
   }
 
   & .u-text--standard,
   & .u-text--small {
-    line-height: calc($space-gutter * 1px);
+    line-height: #{$space-gutter}px;
   }
 }
 

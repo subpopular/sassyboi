@@ -9,7 +9,7 @@ const Placeholder = ({height, width, ...props}) => {
       background="subtle"
       justify="center"
       {...props}
-      style={{width, height}}
+      style={{width, height, padding: '0 12px'}}
     >
       <Text>Placeholder</Text>
     </Inline>

@@ -1,23 +1,16 @@
 import React from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
+import {resolveReponsiveClassnames} from '../util'
 import Box from '../Box/Box'
+import * as types from '../types'
 import './columns.css'
 
-export const Column = ({span, className, children, ...props}) => {
-  const classes = cx('u-col', getResponsiveSpanClasses(span), className)
-
-  return (
-    <Box className={classes} {...props}>
-      {children}
-    </Box>
-  )
-}
-
 const Columns = ({
+  cols = 12,
   gap = 'gutter',
   colGap,
   rowGap,
-  cols = 12,
   collapse,
   collapseBelowTablet,
   className,
@@ -26,12 +19,12 @@ const Columns = ({
 }) => {
   const classes = cx(
     'u-cols',
-    resolveResponsiveClasses(cols, 'cols'),
-    resolveResponsiveClasses(rowGap || gap, 'row-gap'),
-    resolveResponsiveClasses(colGap || gap, 'col-gap'),
+    resolveReponsiveClassnames('cols', cols, 'cols'),
+    resolveReponsiveClassnames('cols', rowGap || gap, 'row-gap'),
+    resolveReponsiveClassnames('cols', colGap || gap, 'col-gap'),
     {
-      'u-cols--collapse-0': collapse,
-      'u-cols--collapse-1': collapseBelowTablet
+      'u-cols--collapse-0': collapse || collapseBelowTablet,
+      'u-cols--collapse-1': collapseBelowTablet,
     },
     className
   )
@@ -43,26 +36,23 @@ const Columns = ({
   )
 }
 
+Columns.propTypes = {
+  /**
+   * Amount of columns in the grid
+   */
+  cols: t.oneOfType([t.arrayOf(t.number), t.number]),
+  /**
+   * Sets even spacing for columns and rows
+   */
+  gap: types.spacing,
+  /**
+   * Sets even spacing for columns and rows
+   */
+  columnGap: types.spacing,
+  /**
+   * Sets even spacing for columns and rows
+   */
+  rowGap: types.spacing,
+}
+
 export default Columns
-
-function resolveResponsiveClasses(value, label) {
-  if (value != null) {
-    if (Array.isArray(value)) {
-      return value.map((v, i) => {
-        return `u-cols--${label}-${v}-${i}`
-      })
-    }
-    return `u-cols--${label}-${value}-0`
-  }
-}
-
-function getResponsiveSpanClasses(span) {
-  if (span != null) {
-    if (Array.isArray(span)) {
-      return span.map((cols, i) => {
-        return `u-col--span-${cols}-${i}`
-      })
-    }
-    return `u-col--span-${span}-0`
-  }
-}
