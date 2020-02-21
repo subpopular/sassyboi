@@ -1,4 +1,5 @@
 import React, {useCallback, useRef, useState, useEffect} from 'react'
+import t from 'prop-types'
 import {useSpring, animated} from 'react-spring'
 import './image.css'
 
@@ -18,7 +19,7 @@ const _useIntersectionObserver = (options = {}) => {
       {
         rootMargin: '100px',
         threshold: 0.1,
-        ...options
+        ...options,
       }
     )
     observer.observe(targetRef.current)
@@ -83,22 +84,22 @@ const Image = ({
     width: fluid ? '100%' : width,
     config: {
       tension: 500,
-      friction: 30
+      friction: 30,
     },
-    immediate: !lazy
+    immediate: !lazy,
   }
 
   const style = useSpring({
     ..._springConfig,
-    ...springConfig(ready)
+    ...springConfig(ready),
   })
 
   const aspectRatio = (height / width) * 100
 
   return (
     <animated.div style={style}>
-      <div
-        className='u-image'
+      <Box
+        className="u-image"
         ref={viewRef}
         style={{paddingTop: `${aspectRatio}%`}}
         {...props}
@@ -113,9 +114,52 @@ const Image = ({
         />
 
         <noscript>{`<img src="${src}" alt="${alt}" style="display: block; max-width: 100%;" />`}</noscript>
-      </div>
+      </Box>
     </animated.div>
   )
+}
+
+Image.propTypes = {
+  /**
+   * The image src HTML attribute
+   */
+  src: t.string,
+  /**
+   * The image alt HTML attribute
+   */
+  alt: t.string,
+  /**
+   * The image srcset HTML attribute
+   */
+  srcSet: t.string,
+  /**
+   * The image sizes HTML attribute
+   */
+  sizes: t.string,
+  /**
+   * Additional HTML attributes to pass to the img element
+   */
+  imageProps: t.any,
+  /**
+   * If true, the image fills its container width-wise while maintaining the aspect ratio from width/height
+   */
+  fluid: t.bool,
+  /**
+   * If true, uses IntersectionObserver to prevent loading until entering the viewport
+   */
+  lazy: t.bool,
+  /**
+   * Sets the width of the image. If 'fluid' is true, width is used to calculate the aspect ratio
+   */
+  width: t.oneOfType([t.string, t.number]),
+  /**
+   * Sets the height of the image. If 'fluid' is true, height is used to calculate the aspect ratio
+   */
+  height: t.oneOfType([t.string, t.number]),
+  /**
+   * Custom function to control fade-in animation when `lazy` is true
+   */
+  springConfig: t.func,
 }
 
 export default Image

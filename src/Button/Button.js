@@ -98,7 +98,7 @@ const Button = React.forwardRef(
               <Text
                 baseline={false}
                 as="span"
-                tone={tone || (weight === 'link' ? 'link' : 'neutral')}
+                tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
                 block
               >
                 <Icon

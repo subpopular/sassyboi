@@ -52,3 +52,11 @@ a {
   color: #444;
   font-family: monospace;
 }
+
+.mdx-text .u-text + .u-text {
+  margin: 24px 0;
+}
+
+.mdx-text .u-text-heading + .u-text {
+  margin: 24px 0;
+}

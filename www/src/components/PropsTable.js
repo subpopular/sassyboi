@@ -11,8 +11,8 @@ import {
   tokens,
 } from 'sassyboi'
 
-const PropsTable = ({doc}) => {
-  console.log(doc)
+const PropsTable = ({component}) => {
+  const doc = component.__docgenInfo
   return (
     <Columns className="props-table">
       <Column span={1}>
@@ -49,7 +49,7 @@ const PropsTable = ({doc}) => {
             prop.type.name !== 'union' &&
             (tokens[
               prop.type.value &&
-                prop.type.name !== 'enum' &&
+                !Array.isArray(prop.type.value) &&
                 prop.type.value.replace('types.', '').replace('tokens.', '')
             ] ||
               tokens[
@@ -57,6 +57,11 @@ const PropsTable = ({doc}) => {
                   prop.type.raw.replace('types.', '').replace('tokens.', '')
               ] ||
               prop.type.value)
+
+          const propOneOf =
+            prop.type &&
+            prop.type.name === 'union' &&
+            prop.type.value.find((v) => v.name === 'arrayOf')
 
           return (
             <React.Fragment key={propName}>
@@ -80,15 +85,15 @@ const PropsTable = ({doc}) => {
                 ) : (
                   <Text>
                     {prop.type && prop.type.name === 'union'
-                      ? prop.type.value.find((v) => v.name === 'arrayOf').value
-                          .name
+                      ? propOneOf
+                        ? propOneOf.value.name
+                        : prop.type.value.map((v) => v.name).join(', ')
                       : prop.type && prop.type.name}
                   </Text>
                 )}
               </Column>
               <Column span={1}>
-                {prop.type &&
-                (prop.type.name === 'custom' || prop.type.name === 'union') ? (
+                {prop.type && (prop.type.name === 'custom' || propOneOf) ? (
                   <Box paddingLeft="gutter">
                     <Icon name="check" />
                   </Box>
