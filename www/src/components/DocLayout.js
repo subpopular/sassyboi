@@ -20,27 +20,6 @@ const DocLayout = ({children, meta, ...props}) => {
       <Stack space="xxlarge">
         {children && <Stack>{children}</Stack>}
 
-        <Stack>
-          <Text weight="strong" size="large">
-            Usage
-          </Text>
-          <Inline space="small">
-            <Box flexGrow={1}>
-              <SyntaxHighlighter
-                language="jsx"
-                style={{
-                  ...github,
-                  hljs: {
-                    ...github.hljs,
-                    padding: '9px 18px',
-                    lineHeight: '24px',
-                  },
-                }}
-              >{`import {${name}} from 'sassyboi'`}</SyntaxHighlighter>
-            </Box>
-          </Inline>
-        </Stack>
-
         <Stack space="large">
           <Stack space="gutter">
             <Text weight="strong" size="large">
