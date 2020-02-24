@@ -5,7 +5,6 @@ import Box from '../Box/Box'
 import './text.css'
 
 const Text = ({
-  as = 'p',
   size = 'small',
   align = 'left',
   heading = false,
@@ -39,7 +38,7 @@ const Text = ({
     className
   )
 
-  return <Box className={classes} as={as} {...props} />
+  return <Box className={classes} as="p" {...props} />
 }
 
 export default Text

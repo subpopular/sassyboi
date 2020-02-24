@@ -26,14 +26,18 @@ import './sprite.svg'
 const docPages = [
   'Box',
   'Button',
+  'Checkbox',
   'Columns',
   'Column',
   'ContentBlock',
   'Icon',
   'Image',
   'Inline',
+  'Input',
+  'Radio',
   'ScrollBox',
   'Stack',
+  'Select',
   'Text',
 ]
 

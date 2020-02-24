@@ -3,7 +3,14 @@ import t from 'prop-types'
 import classNames from 'classnames'
 import './icon.css'
 
-const Icon = ({name, prefix = 'sprite_pw', size, className, ...props}) => {
+const Icon = ({
+  name,
+  prefix = 'sprite_pw',
+  size,
+  tone,
+  className,
+  ...props
+}) => {
   const a11y =
     props.title && props.title.length ? {role: 'img'} : {'aria-hidden': 'true'}
   const sizeClass = `u-icon--${size}`
@@ -12,6 +19,7 @@ const Icon = ({name, prefix = 'sprite_pw', size, className, ...props}) => {
     'u-icon',
     {
       [sizeClass]: !!size,
+      [`tone--${tone}`]: tone,
     },
     className
   )

@@ -7,6 +7,7 @@ import mapGet from 'postcss-map-get'
 import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
+import colorFunctions from 'postcss-color-function'
 import {isLight, mod, baseliner} from './style-functions'
 
 export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
@@ -27,6 +28,7 @@ export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
     }),
     contrast(),
     nesting(),
+    colorFunctions(),
   ]
 
   // process css with all plugins

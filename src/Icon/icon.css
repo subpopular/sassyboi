@@ -3,32 +3,34 @@
 $unit: 8px;
 
 .u-icon {
-    display: block;
-    justify-content: center;
-    align-items: center;
-    width: calc($unit * 2);
-    max-width: 100%;
-    height: calc($unit * 2);
-    max-height: 100%;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  width: calc($unit * 2);
+  max-width: 100%;
+  height: calc($unit * 2);
+  max-height: 100%;
 
+  &:not([class*='tone--']) {
     color: inherit;
+  }
 
-    pointer-events: none;
+  pointer-events: none;
 
-    fill: currentColor;
+  fill: currentColor;
 
-    &.u-icon--small {
-        width: calc($unit);
-        height: calc($unit);
-    }
+  &.u-icon--small {
+    width: calc($unit);
+    height: calc($unit);
+  }
 
-    &.u-icon--medium {
-        width: calc($unit * 3);
-        height: calc($unit * 3);
-    }
+  &.u-icon--medium {
+    width: calc($unit * 3);
+    height: calc($unit * 3);
+  }
 
-    &.u-icon--large {
-        width: calc($unit * 4);
-        height: calc($unit * 4);
-    }
+  &.u-icon--large {
+    width: calc($unit * 4);
+    height: calc($unit * 4);
+  }
 }
