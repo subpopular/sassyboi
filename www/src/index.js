@@ -16,15 +16,12 @@ import {
   ScrollBox,
 } from 'sassyboi'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import DocPage from './components/DocPage'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
 
-import Page from './pages/box.mdx'
-
-import './index.css'
 import 'sassyboi/dist/index.css'
-import sprite from './sprite.svg'
+import './index.css'
+import './sprite.svg'
 
 const docPages = [
   'Box',
@@ -37,6 +34,7 @@ const docPages = [
   'Inline',
   'ScrollBox',
   'Stack',
+  'Text',
 ]
 
 const mdxComponents = {

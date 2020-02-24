@@ -13,7 +13,14 @@ export const tokens = {
     'xxlarge',
   ],
   display: ['none', 'inline', 'block', 'flex', 'grid'],
-  background: ['brand', 'critical', 'transparent', 'secondary', 'subtle'],
+  background: [
+    'brand',
+    'brandAccent',
+    'critical',
+    'transparent',
+    'secondary',
+    'subtle',
+  ],
   alignItems: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'],
   justifyContent: [
     'flex-start',

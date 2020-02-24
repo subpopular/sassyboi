@@ -31,14 +31,7 @@ const mainConfig = {
     postcss({
       modules: false,
       syntax: 'postcss-scss',
-      plugins:
-        isProduction && !isExampleBuild
-          ? [cssImports()]
-          : [
-              sassyboi({
-                variables: require('./sassyboi.config.js'),
-              }),
-            ],
+      plugins: [cssImports()],
       extract: true,
     }),
     url(),

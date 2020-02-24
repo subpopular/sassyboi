@@ -1,8 +1,8 @@
 import React from 'react'
 import Inline from '../Inline/Inline'
-import Text from '../Text/Text'
+import './placeholder.css'
 
-const Placeholder = ({height, width, ...props}) => {
+const Placeholder = ({height, width, text, ...props}) => {
   return (
     <Inline
       className="u-placeholder"
@@ -11,7 +11,7 @@ const Placeholder = ({height, width, ...props}) => {
       {...props}
       style={{width, height, padding: '0 12px'}}
     >
-      <Text>Placeholder</Text>
+      {text}
     </Inline>
   )
 }
