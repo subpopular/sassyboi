@@ -9,7 +9,7 @@ import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
 import {isLight, mod, baseliner} from './style-functions'
 
-export default postcss.plugin('postcss-sassyboi', (rawopts) => {
+export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
   const variables = rawopts.configPath
     ? path.join(rawopts.configPath, 'sassyboi.config.js')
     : require(path.resolve(process.cwd(), 'sassyboi.config.js'))
