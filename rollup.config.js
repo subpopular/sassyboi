@@ -5,8 +5,6 @@ import postcss from 'rollup-plugin-postcss'
 import cssImports from 'postcss-import'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
-import svgr from '@svgr/rollup'
-import sassyboi from './src/postcss-sassyboi'
 import pkg from './package.json'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -35,7 +33,6 @@ const mainConfig = {
       extract: true,
     }),
     url(),
-    svgr(),
     babel({
       exclude: 'node_modules/**',
       plugins: ['react-docgen'],

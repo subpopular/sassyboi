@@ -34,6 +34,7 @@ const Box = React.forwardRef(
       align,
       justify,
       flexGrow,
+      position,
       size,
       wrap = false,
       ...props
@@ -64,6 +65,7 @@ const Box = React.forwardRef(
       align,
       justify,
       flexGrow,
+      position,
       size,
       wrap,
     })
@@ -151,6 +153,10 @@ Box.propTypes = {
    * Applies margin to the top and bottom
    */
   marginY: types.spacing,
+  /**
+   * Sets the CSS position
+   */
+  position: types.position,
   /**
    * Applies flex alignment to children (only applies to flex display)
    */

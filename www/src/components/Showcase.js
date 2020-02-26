@@ -18,7 +18,7 @@ const Showcase = ({children, playroomPath, ...props}) => {
             target="_blank"
             size="small"
             weight="weak"
-            icon="share"
+            icon="layout"
           >
             Open in Playroom
           </Button>

@@ -56,7 +56,7 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.css?$/,
+          test: /\.css$/,
           use: [
             prod ? MiniCssExtractPlugin.loader : 'style-loader',
             {loader: 'css-loader', options: {importLoaders: 1}},
@@ -69,18 +69,6 @@ module.exports = (env, argv) => {
                     from: path.resolve(__dirname, '../'),
                   }),
                 ],
-              },
-            },
-          ],
-        },
-        {
-          test: /\.svg$/i,
-          include: /sprite\.svg/,
-          use: [
-            {
-              loader: 'svg-sprite-loader',
-              options: {
-                publicPath: '',
               },
             },
           ],

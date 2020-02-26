@@ -26,7 +26,7 @@ const Button = React.forwardRef(
       size = 'regular',
       icon,
       iconRight,
-      iconSize = 'regular',
+      iconSize = 'small',
       innerJustify = false,
       loading = false,
       children,
@@ -104,7 +104,7 @@ const Button = React.forwardRef(
                 <Icon
                   name={icon}
                   size={iconSize}
-                  className={`pw-icon--${icon}`}
+                  className={`u-icon--${icon}`}
                 />
               </Text>
             )}
@@ -121,7 +121,7 @@ const Button = React.forwardRef(
                 <Icon
                   name={iconRight}
                   size={iconSize}
-                  className={`pw-icon--${iconRight}`}
+                  className={`u-icon--${iconRight}`}
                 />
               </Text>
             )}

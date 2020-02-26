@@ -53,10 +53,11 @@
 
   & .u-input--checkbox__check {
     position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 12px;
-    height: 12px;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: none;
+    /* use background context for foreground color */
     color: white;
   }
 

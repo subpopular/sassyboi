@@ -1,4 +1,5 @@
-import {Icon} from 'sassyboi'
+import {Box, Icon, Inline, Stack} from 'sassyboi'
+import Showcase from '../components/Showcase'
 import PropsTable from '../components/PropsTable'
 
 export const meta = {
@@ -8,3 +9,35 @@ export const meta = {
   inheritBoxProps: true,
   playroom: '',
 }
+
+<Box marginBottom="large">
+  <Showcase>
+    <Stack dividers>
+      <Inline space="large">
+        <Icon name="edit" size="small" />
+        <Icon name="eye" size="small" />
+        <Icon name="heart" size="small" />
+        <Icon name="frown" size="small" />
+        <Icon name="map" size="small" />
+      </Inline>
+      <Inline space="large">
+        <Icon name="menu" />
+        <Icon name="moon" />
+        <Icon name="mic" />
+        <Icon name="layers" />
+        <Icon name="plus-square" />
+      </Inline>
+      <Inline space="large">
+        <Icon name="tool" size="large" tone="info" />
+        <Icon name="github" size="large" tone="positive" />
+        <Icon name="user" size="large" tone="promote" />
+        <Icon name="zoom-in" size="large" tone="brandAccent" />
+        <Icon name="zap" size="large" tone="critical" />
+      </Inline>
+    </Stack>
+  </Showcase>
+</Box>
+
+## Usage & customization
+
+The Icon component's `name` prop references symbol IDs in an SVG sprite. Here we're using the full sprite sheet from [Feather Icons](https://feathericons.com/). You can use these icons in your app by including the provided SVG sprite sheet or customize them by including your own. You'll want to ensure that the symbol IDs you use match ones used internally (for instance, `Checkbox` references an SVG symbol ID called `check`).

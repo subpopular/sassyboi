@@ -21,14 +21,18 @@ const Checkbox = ({label, tone, className, wrapperProps, ...props}) => {
         space="small"
         htmlFor={props.id || `input_${props.name}`}
       >
-        <span>
+        <Box position="relative">
           <input
             id={props.id || `input_${props.name}`}
             type="checkbox"
             {...props}
           />
-          <Icon name="check" className="u-input--checkbox__check" />
-        </span>
+          <Icon
+            name="check"
+            className="u-input--checkbox__check"
+            size="small"
+          />
+        </Box>
 
         <Text>{label}</Text>
       </Inline>

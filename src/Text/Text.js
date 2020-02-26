@@ -5,7 +5,7 @@ import Box from '../Box/Box'
 import './text.css'
 
 const Text = ({
-  size = 'small',
+  size = 'standard',
   align = 'left',
   heading = false,
   baseline = true,

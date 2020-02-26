@@ -1,5 +1,3 @@
-import './styles.css'
-
 export {default as Box} from './Box/Box'
 export {default as Text} from './Text/Text'
 export {default as Stack} from './Stack/Stack'

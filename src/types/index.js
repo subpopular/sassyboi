@@ -30,6 +30,7 @@ export const tokens = {
     'space-between',
     'stretch',
   ],
+  position: ['relative', 'absolute', 'fixed', 'sticky', 'static'],
 }
 
 export const validateResponsiveProps = (tokenValues) => (
@@ -60,3 +61,4 @@ export const spacing = validateResponsiveProps(tokens.spacing)
 export const display = validateResponsiveProps(tokens.display)
 export const alignItems = validateResponsiveProps(tokens.alignItems)
 export const justifyContent = validateResponsiveProps(tokens.justifyContent)
+export const position = validateResponsiveProps(tokens.position)

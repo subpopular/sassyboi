@@ -14,7 +14,7 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^5.1.2",
     "react-syntax-highlighter": "^12.2.1",
-    "sassyboi": "link:..",
+    "sassyboi": "link:../",
     "style-loader": "^1.1.3"
   },
   "scripts": {

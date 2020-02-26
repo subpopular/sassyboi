@@ -1,16 +1,10 @@
 import React from 'react'
 import t from 'prop-types'
 import classNames from 'classnames'
+import Box from '../Box/Box'
 import './icon.css'
 
-const Icon = ({
-  name,
-  prefix = 'sprite_pw',
-  size,
-  tone,
-  className,
-  ...props
-}) => {
+const Icon = ({name, size = 'gutter', tone, className, ...props}) => {
   const a11y =
     props.title && props.title.length ? {role: 'img'} : {'aria-hidden': 'true'}
   const sizeClass = `u-icon--${size}`
@@ -25,25 +19,20 @@ const Icon = ({
   )
 
   return (
-    <svg {...a11y} className={classes} {...props}>
-      <use role="presentation" xlinkHref={`#${prefix}-${name}`} />
-    </svg>
+    <Box as="svg" size={size} {...a11y} className={classes} {...props}>
+      <use role="presentation" xlinkHref={`#${name}`} />
+    </Box>
   )
 }
 
 Icon.propTypes = {
   /**
-   * Name of the icon to render
+   * SVG symbol ID from sprite
    */
   name: t.string.isRequired,
 
   /**
-   * A prefix for symbols in the sprite sheet
-   */
-  prefix: t.string,
-
-  /**
-   * Sets the dimension (width/height) of the icon
+   * Sets the dimension (width/height) of the icon (passed to Box)
    */
   size: t.string,
 }

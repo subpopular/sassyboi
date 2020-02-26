@@ -27,6 +27,7 @@ const useBoxStyles = ({
   marginLeft,
   marginX,
   marginY,
+  position,
   size,
   wrap,
 }) => {
@@ -85,6 +86,7 @@ const useBoxStyles = ({
     classes(size, 'size'),
     classes(alignItems || align, 'alignItems'),
     classes(justifyContent || justify, 'justifyContent'),
+    classes(position, 'position'),
     {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
     {
       [`shadow--${boxShadow}`]:
