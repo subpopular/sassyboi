@@ -1,4 +1,4 @@
-export const resolveReponsiveClassnames = (element, value, label) => {
+export const resolveResponsiveClassnames = (element, value, label) => {
   if (value != null) {
     if (Array.isArray(value)) {
       return value.map((v, i) => {

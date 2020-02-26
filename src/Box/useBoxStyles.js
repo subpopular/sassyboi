@@ -1,7 +1,7 @@
-import {resolveReponsiveClassnames} from '../util'
+import {resolveResponsiveClassnames} from '../util'
 
 const classes = (value, label) =>
-  resolveReponsiveClassnames('box', value, label)
+  resolveResponsiveClassnames('box', value, label)
 
 const useBoxStyles = ({
   as,

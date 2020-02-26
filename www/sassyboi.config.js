@@ -27,7 +27,7 @@ const spacingMap = {
 const baseColors = {
   brand: 'black',
   brandAccent: 'rebeccapurple',
-  formAccent: 'black',
+  formAccent: '#2c5ce2',
   white: '#fff',
   focus: 'black',
   positive: '#138a08',
@@ -239,6 +239,12 @@ module.exports = {
         size: 34,
         rows: 9,
       },
+    },
+  },
+
+  border: {
+    radius: {
+      standard: '3px',
     },
   },
 }

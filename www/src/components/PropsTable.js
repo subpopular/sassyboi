@@ -16,24 +16,16 @@ const PropsTable = ({component}) => {
   return (
     <Columns className="props-table">
       <Column span={1}>
-        <Text weight="bold" tone="secondary">
-          Name
-        </Text>
+        <Text tone="secondary">Name</Text>
       </Column>
       <Column span={1}>
-        <Text weight="bold" tone="secondary">
-          Type
-        </Text>
+        <Text tone="secondary">Type</Text>
       </Column>
       <Column span={1}>
-        <Text weight="bold" tone="secondary">
-          Responsive
-        </Text>
+        <Text tone="secondary">Responsive</Text>
       </Column>
       <Column span={1}>
-        <Text weight="bold" tone="secondary">
-          Description
-        </Text>
+        <Text tone="secondary">Description</Text>
       </Column>
       <Column span={4}>
         <Divider />

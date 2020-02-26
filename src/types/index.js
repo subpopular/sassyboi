@@ -12,6 +12,7 @@ export const tokens = {
     'xlarge',
     'xxlarge',
   ],
+  textSizes: ['xsmall', 'small', 'standard', 'large', 'xlarge'],
   display: ['none', 'inline', 'block', 'flex', 'grid'],
   background: [
     'brand',
@@ -20,6 +21,16 @@ export const tokens = {
     'transparent',
     'secondary',
     'subtle',
+    'neutral',
+  ],
+  foreground: [
+    'brand',
+    'brandAccent',
+    'critical',
+    'secondary',
+    'subtle',
+    'link',
+    'neutral',
   ],
   alignItems: ['flex-start', 'flex-end', 'center', 'baseline', 'stretch'],
   justifyContent: [

@@ -1,7 +1,7 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {resolveReponsiveClassnames} from '../util'
+import {resolveResponsiveClassnames} from '../util'
 import Box from '../Box/Box'
 import * as types from '../types'
 import './columns.css'
@@ -19,9 +19,9 @@ const Columns = ({
 }) => {
   const classes = cx(
     'u-cols',
-    resolveReponsiveClassnames('cols', cols, 'cols'),
-    resolveReponsiveClassnames('cols', rowGap || gap, 'row-gap'),
-    resolveReponsiveClassnames('cols', colGap || gap, 'col-gap'),
+    resolveResponsiveClassnames('cols', cols, 'cols'),
+    resolveResponsiveClassnames('cols', rowGap || gap, 'row-gap'),
+    resolveResponsiveClassnames('cols', colGap || gap, 'col-gap'),
     {
       'u-cols--collapse-0': collapse || collapseBelowTablet,
       'u-cols--collapse-1': collapseBelowTablet,

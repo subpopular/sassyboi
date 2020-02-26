@@ -4,19 +4,12 @@
   & input {
     position: relative;
     display: block;
-    width: #{$space-small}px;
-    height: #{$space-small}px;
     /* TODO: border color theme configs */
     border: 1px solid #cccccc;
-    border-radius: 0;
+    border-radius: map-get(map-get($border, radius), standard);
     background: transparent;
     -webkit-appearance: none;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-
-    &:active {
-      background: transparent;
-      opacity: 0.7;
-    }
 
     &::after {
       content: '';
@@ -27,9 +20,16 @@
       width: calc(100% + 2px);
       height: calc(100% + 2px);
       background: map-get($backgroundColors, formAccent);
-      border-radius: 0;
+      border-radius: map-get(map-get($border, radius), standard);
       opacity: 0;
       transition: opacity 0.1s ease-in-out;
+    }
+
+    &:active {
+      background: transparent;
+      &::after {
+        opacity: 0.1;
+      }
     }
 
     &:checked {
@@ -80,5 +80,26 @@
     & input {
       border-color: map-get($foregroundColors, critical);
     }
+  }
+}
+
+.u-input--checkbox--small {
+  & input {
+    width: #{$space-small}px;
+    height: #{$space-small}px;
+  }
+}
+
+.u-input--checkbox--regular {
+  & input {
+    width: #{$space-gutter}px;
+    height: #{$space-gutter}px;
+  }
+}
+
+.u-input--checkbox--large {
+  & input {
+    width: #{$space-medium}px;
+    height: #{$space-medium}px;
   }
 }

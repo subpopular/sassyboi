@@ -1,3 +1,4 @@
+import fs from 'fs'
 import path from 'path'
 import postcss from 'postcss'
 import scssVariables from 'postcss-advanced-variables'
@@ -8,6 +9,7 @@ import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
 import colorFunctions from 'postcss-color-function'
+import defaultConfig from './config'
 import {isLight, mod, baseliner} from './style-functions'
 
 export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
@@ -17,9 +19,15 @@ export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
       ? path.join(rawopts.configPath, 'sassyboi.config.js')
       : path.resolve(process.cwd(), 'sassyboi.config.js')
 
-    delete require.cache[require.resolve(configPath)]
+    const hasUserConfig = fs.existsSync(configPath)
 
-    const theme = require(configPath)
+    if (hasUserConfig) {
+      delete require.cache[require.resolve(configPath)]
+    }
+
+    const userConfig = hasUserConfig ? require(configPath) : {}
+
+    const variables = Object.assign({}, defaultConfig, userConfig)
 
     result.messages.push({
       type: 'dependency',
@@ -31,11 +39,11 @@ export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
       cssImports({
         from: rawopts.from || process.cwd(),
       }),
-      scssVariables({theme}),
+      scssVariables({variables}),
       mapGet(),
       calc({mediaQueries: true, selectors: true}),
       functions({
-        functions: {isLight, mod, baseliner: baseliner(theme)},
+        functions: {isLight, mod, baseliner: baseliner(variables)},
       }),
       contrast(),
       nesting(),

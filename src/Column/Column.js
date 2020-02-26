@@ -1,14 +1,14 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {resolveReponsiveClassnames} from '../util'
+import {resolveResponsiveClassnames} from '../util'
 import Box from '../Box/Box'
 import './column.css'
 
 const Column = ({span, className, children, ...props}) => {
   const classes = cx(
     'u-col',
-    resolveReponsiveClassnames('col', span, 'span'),
+    resolveResponsiveClassnames('col', span, 'span'),
     className
   )
 

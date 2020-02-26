@@ -1,10 +1,10 @@
 import React from 'react'
-import Inline from '../Inline/Inline'
+import Box from '../Box/Box'
 import './placeholder.css'
 
 const Placeholder = ({height, width, text, ...props}) => {
   return (
-    <Inline
+    <Box
       className="u-placeholder"
       background="subtle"
       justify="center"
@@ -12,7 +12,7 @@ const Placeholder = ({height, width, text, ...props}) => {
       style={{width, height, padding: '0 12px'}}
     >
       {text}
-    </Inline>
+    </Box>
   )
 }
 

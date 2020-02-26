@@ -47,11 +47,7 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 syntax: 'postcss-scss',
-                plugins: [
-                  postcssSassyboi({
-                    variables: require('./sassyboi.config.js'),
-                  }),
-                ],
+                plugins: [postcssSassyboi()],
               },
             },
           ],

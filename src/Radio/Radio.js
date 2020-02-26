@@ -5,11 +5,19 @@ import Inline from '../Inline/Inline'
 import Text from '../Text/Text'
 import './radio.css'
 
-const Radio = ({label, tone, className, wrapperProps, ...props}) => {
+const Radio = ({
+  label,
+  tone,
+  size = 'regular',
+  className,
+  wrapperProps,
+  ...props
+}) => {
   return (
     <Box
       className={cx(
         'u-input--radio',
+        `u-input--radio--${size}`,
         {'u-input--disabled': props.disabled, [`u-input--tone-${tone}`]: tone},
         className
       )}

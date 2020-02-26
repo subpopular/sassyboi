@@ -6,11 +6,19 @@ import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
 import './checkbox.css'
 
-const Checkbox = ({label, tone, className, wrapperProps, ...props}) => {
+const Checkbox = ({
+  label,
+  tone,
+  size = 'regular',
+  className,
+  wrapperProps,
+  ...props
+}) => {
   return (
     <Box
       className={cx(
         'u-input--checkbox',
+        `u-input--checkbox--${size}`,
         {'u-input--disabled': props.disabled, [`u-input--tone-${tone}`]: tone},
         className
       )}

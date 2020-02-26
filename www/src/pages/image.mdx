@@ -1,4 +1,5 @@
-import {Image} from 'sassyboi'
+import {Image, Columns} from 'sassyboi'
+import Showcase from '../components/Showcase'
 import PropsTable from '../components/PropsTable'
 
 export const meta = {
@@ -8,3 +9,26 @@ export const meta = {
   inheritBoxProps: true,
   playroom: '',
 }
+
+<Showcase playroomPath="#?code=N4Igxg9gJgpiBcIA8BhCAbArgWwHYGcACSdfAXmAGYBfQgBwEMooBLXAczIB0R3MAXfjABOPAHxdchQkgCS2BuxiTp0-MLDcQAC0F188APSG6LMPhwA6Otoj8I+QyyiGAjAAZXhgCzv3hgFY-HhVVAHdnfm0Kb2pQ6W0YFnZdCgC4qVUAMyxnUMMJTLkFJXjCdU0eXX59IxMzC2xrW3tHZzd3ACYfP0DgkDKIqCiYjNVCROTU4HSynMw8zILQ4sVlTLUNLWra41NzKxs7BycXD28e-yD3EI3CIZHgWLLJlP40sezcqHzCpEM0Fg8PhCiBqEA">
+  <Columns cols={3}>
+    <Image
+      src="https://picsum.photos/id/101/400/500"
+      width={4}
+      height={5}
+      fluid
+    />
+    <Image
+      src="https://picsum.photos/id/102/400/500"
+      width={4}
+      height={5}
+      fluid
+    />
+    <Image
+      src="https://picsum.photos/id/104/400/500"
+      width={4}
+      height={5}
+      fluid
+    />
+  </Columns>
+</Showcase>

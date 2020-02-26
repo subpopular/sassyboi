@@ -63,7 +63,11 @@ const Select = ({
         <option value="" hidden {...defaultSelectionProps}></option>
         {children}
       </select>
-      <Icon name="dropdown-chevron" className="u-input--select__chevron" />
+      <Icon
+        name="chevron-down"
+        size="small"
+        className="u-input--select__chevron"
+      />
 
       {message && (
         <FieldMessage marginTop="xsmall" tone={tone} message={message} />

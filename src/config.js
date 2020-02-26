@@ -26,12 +26,12 @@ const spacingMap = {
 
 const baseColors = {
   brand: 'black',
-  brandAccent: '#af3534',
-  formAccent: 'black',
+  brandAccent: 'rebeccapurple',
+  formAccent: '#2c5ce2',
   white: '#fff',
   focus: 'black',
   positive: '#138a08',
-  critical: '#e60278',
+  critical: '#f44336',
   info: '#1e468c',
   promote: '#af3534',
   neutral: '#1c1c1c',
@@ -160,11 +160,11 @@ module.exports = {
     standard: {
       mobile: {
         size: 15,
-        rows: 5,
+        rows: 6,
       },
       tablet: {
         size: 15,
-        rows: 5,
+        rows: 6,
       },
     },
     large: {
@@ -239,6 +239,12 @@ module.exports = {
         size: 34,
         rows: 9,
       },
+    },
+  },
+
+  border: {
+    radius: {
+      standard: '3px',
     },
   },
 }
