@@ -2,15 +2,16 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const postcssSassyboi = require('./dist/postcss-sassyboi')
 
 module.exports = {
-  components: './playroom-components',
-  outputPath: './playroom',
+  components: './playroom/components',
+  outputPath: './dist/playroom',
 
   // Optional:
   title: 'Sassyboi',
   widths: [375, 768, 1024],
   port: 9000,
   openBrowser: false,
-  snippets: './playroom-snippets.js',
+  snippets: './playroom/snippets.js',
+  frameComponent: './playroom/Frame.js',
   exampleCode: `
     <Stack padding={["large", "xlarge"]} align="center">
       <Text heading size="large">
@@ -25,18 +26,6 @@ module.exports = {
   webpackConfig: () => ({
     module: {
       rules: [
-        {
-          test: /\.svg$/i,
-          include: /sprite\.svg/,
-          use: [
-            {
-              loader: 'svg-sprite-loader',
-              options: {
-                publicPath: '',
-              },
-            },
-          ],
-        },
         {
           test: /\.css?$/,
           exclude: /node_modules/,
