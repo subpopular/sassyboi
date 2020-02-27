@@ -51,11 +51,13 @@ const Button = React.forwardRef(
       xsmall: {x: 'small', y: 'xxsmall'},
       small: {x: 'small', y: 'xsmall'},
       regular: {x: 'gutter', y: 'smallish'},
+      large: {x: 'medium', y: 'small'},
     }
     const fontSizes = {
       xsmall: 'small',
       small: 'small',
       regular: 'standard',
+      large: 'large',
     }
 
     let paddingX = paddings[size].x

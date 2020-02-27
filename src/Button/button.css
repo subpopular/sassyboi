@@ -9,6 +9,11 @@
   &.u-button--icon-only {
     width: auto;
 
+    &.u-button--size-large {
+      width: #{$space-xxlarge}px;
+      height: #{$space-xxlarge}px;
+    }
+
     &.u-button--size-regular {
       width: #{$space-xlarge}px;
       height: #{$space-xlarge}px;
@@ -28,6 +33,10 @@
   & .u-text--standard,
   & .u-text--small {
     line-height: #{$space-gutter}px;
+  }
+
+  & .u-text--large {
+    line-height: #{$space-medium}px;
   }
 }
 
