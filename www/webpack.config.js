@@ -7,7 +7,10 @@ const sassyboi = require('sassyboi/dist/postcss-sassyboi')
 const dist = path.resolve(__dirname, 'dist')
 
 module.exports = (env) => {
-  const prod = env && env.mode === 'production' ? true : undefined
+  const prod =
+    (env && env.mode === 'production') || process.env.NODE_ENV === 'production'
+      ? true
+      : undefined
 
   let plugins = [
     new HtmlWebPackPlugin({
