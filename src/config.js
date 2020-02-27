@@ -79,7 +79,7 @@ const colors = {
   },
 }
 
-module.exports = {
+export default {
   'font-family': "'Work Sans', sans-serif",
   'header-font-family': "'Frank Ruhl Libre', sans-serif",
 
