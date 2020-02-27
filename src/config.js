@@ -25,11 +25,11 @@ const spacingMap = {
 }
 
 const baseColors = {
-  brand: 'black',
-  brandAccent: 'rebeccapurple',
-  formAccent: '#2c5ce2',
+  brand: '#445560',
+  brandAccent: '#d80a86',
+  formAccent: '#d80a86',
   white: '#fff',
-  focus: 'black',
+  focus: 'rebeccapurple',
   positive: '#138a08',
   critical: '#f44336',
   info: '#1e468c',
@@ -80,8 +80,10 @@ const colors = {
 }
 
 export default {
-  'font-family': "'Work Sans', sans-serif",
-  'header-font-family': "'Frank Ruhl Libre', sans-serif",
+  'font-family':
+    'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
+  'header-font-family':
+    'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
 
   'thin-font-weight': 100,
   'extra-light-font-weight': 200,
@@ -107,12 +109,12 @@ export default {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.1922,
-      capHeight: 0.69231,
+      descenderHeightScale: 0.165,
+      capHeight: 0.6,
     },
     heading: {
-      descenderHeightScale: 0.1764,
-      capHeight: 0.70588,
+      descenderHeightScale: 0.165,
+      capHeight: 0.6,
     },
   },
 
@@ -163,7 +165,7 @@ export default {
         rows: 6,
       },
       tablet: {
-        size: 15,
+        size: 16,
         rows: 6,
       },
     },

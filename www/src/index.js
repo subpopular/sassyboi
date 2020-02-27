@@ -21,8 +21,9 @@ import {ThemeProvider} from './util/ThemeContext'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
 
-import themeConfig from '../sassyboi.config'
 import './index.css'
+
+const theme = {}
 
 const docPages = [
   'Box',
@@ -56,7 +57,7 @@ const mdxComponents = {
 
 const App = () => {
   return (
-    <ThemeProvider theme={themeConfig}>
+    <ThemeProvider theme={theme}>
       <Router>
         <Box paddingY="medium">
           <ContentBlock>
