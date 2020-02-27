@@ -1,19 +1,28 @@
 import React from 'react'
 import t from 'prop-types'
 import classNames from 'classnames'
+import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
 import './icon.css'
 
 const Icon = ({name, size = 'gutter', tone, className, ...props}) => {
+  const backgroundContext = useBackground()
+
+  const background =
+    backgroundContext && backgroundContext !== 'transparent'
+      ? backgroundContext
+      : null
+
   const a11y =
     props.title && props.title.length ? {role: 'img'} : {'aria-hidden': 'true'}
-  const sizeClass = `u-icon--${size}`
 
   const classes = classNames(
     'u-icon',
     {
-      [sizeClass]: !!size,
+      [`u-icon--${size}`]: size,
       [`tone--${tone}`]: tone,
+      [`tone--${tone}`]: tone && !background,
+      [`tone--${tone}-on-${background}`]: background,
     },
     className
   )

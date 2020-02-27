@@ -38,8 +38,9 @@
       }
     }
 
-    &:focus {
+    &.focus-visible {
       outline: none;
+      box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
     }
 
     &::-ms-check {

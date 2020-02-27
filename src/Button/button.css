@@ -31,6 +31,22 @@
   }
 }
 
+@each $color $tone in $base-colors {
+  .u-button.bg--#{$tone} {
+    &.focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 3px color($color a(40%));
+    }
+  }
+}
+
+.u-button.bg--transparent {
+  &.focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+  }
+}
+
 .u-button--weight-link {
   position: relative;
   display: flex;

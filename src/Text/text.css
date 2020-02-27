@@ -74,3 +74,12 @@
     }
   }
 }
+
+.u-text:focus {
+  outline: none;
+}
+
+.u-text.focus-visible:not(.u-text--baseline) {
+  border-radius: 3px;
+  box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
+}

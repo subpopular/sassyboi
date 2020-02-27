@@ -44,9 +44,9 @@
     border-bottom-style: solid;
     border-color: #e1e1e1;
 
-    &:focus {
+    &.focus-visible {
       outline: none;
-      border-color: map-get($base-colors, focus);
+      border-color: map-get($base-colors, formAccent);
     }
   }
 
@@ -68,12 +68,20 @@
       font-weight: $bold-font-weight;
     }
     & input {
-      border: 1px solid #e1e1e1;
       padding: 7px 10px;
+      border: 1px solid #e1e1e1;
+      border-radius: map-get(map-get($border, radius), standard);
+      &.focus-visible {
+        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      }
     }
     & select {
+      border-radius: map-get(map-get($border, radius), standard);
       padding: 7px #{$space-medium}px 7px 10px;
       border: 1px solid #e1e1e1;
+      &.focus-visible {
+        box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
+      }
     }
     & .u-input--select__chevron {
       top: 30px;

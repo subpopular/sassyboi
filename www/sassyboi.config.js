@@ -29,7 +29,7 @@ const baseColors = {
   brandAccent: 'rebeccapurple',
   formAccent: '#2c5ce2',
   white: '#fff',
-  focus: 'black',
+  focus: 'rebeccapurple',
   positive: '#138a08',
   critical: '#f44336',
   info: '#1e468c',

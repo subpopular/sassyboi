@@ -1,3 +1,4 @@
+import 'focus-visible'
 import React, {useEffect} from 'react'
 import {render} from 'react-dom'
 import {MDXProvider} from '@mdx-js/react'

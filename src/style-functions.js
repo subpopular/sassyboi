@@ -59,4 +59,8 @@ export const baseliner = (vars) => (size, rows, scaleKey, rule) => {
   if (rule === 'marginTop') {
     return `-${heightCorrection}px`
   }
+
+  if (rule === 'negativeTransform') {
+    return `translateY(-${typeOffset}em)`
+  }
 }

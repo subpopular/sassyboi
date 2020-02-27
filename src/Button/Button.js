@@ -90,42 +90,33 @@ const Button = React.forwardRef(
         {...props}
       >
         {icon || iconRight ? (
-          <Inline
-            space="xsmall"
+          <Box
+            display="flex"
+            align="center"
             justify={innerJustify ? 'space-between' : 'center'}
           >
             {icon && (
-              <Text
-                baseline={false}
-                as="span"
+              <Icon
+                name={icon}
+                size={iconSize}
+                className={`u-icon--${icon}`}
                 tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-                block
-              >
-                <Icon
-                  name={icon}
-                  size={iconSize}
-                  className={`u-icon--${icon}`}
-                />
-              </Text>
+                marginRight={hasChildren ? 'xsmall' : undefined}
+              />
             )}
 
             {text}
 
             {iconRight && (
-              <Text
-                baseline={false}
-                as="span"
+              <Icon
+                name={iconRight}
+                size={iconSize}
+                className={`u-icon--${iconRight}`}
                 tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-                block
-              >
-                <Icon
-                  name={iconRight}
-                  size={iconSize}
-                  className={`u-icon--${iconRight}`}
-                />
-              </Text>
+                marginRight={hasChildren ? 'xsmall' : undefined}
+              />
             )}
-          </Inline>
+          </Box>
         ) : (
           text
         )}
