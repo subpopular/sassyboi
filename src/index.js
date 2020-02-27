@@ -19,3 +19,7 @@ export {default as FieldMessage} from './FieldMessage/FieldMessage'
 export {default as Placeholder} from './Placeholder/Placeholder'
 
 export {tokens} from './types'
+
+export {ThemeProvider as SassyboiProvider} from './Provider'
+export {useTheme} from './Provider'
+export {default as defaultTheme} from './config'
