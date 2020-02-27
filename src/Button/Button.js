@@ -113,7 +113,7 @@ const Button = React.forwardRef(
                 size={iconSize}
                 className={`u-icon--${iconRight}`}
                 tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-                marginRight={hasChildren ? 'xsmall' : undefined}
+                marginLeft={hasChildren ? 'xsmall' : undefined}
               />
             )}
           </Box>

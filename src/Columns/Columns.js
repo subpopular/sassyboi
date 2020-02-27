@@ -48,7 +48,7 @@ Columns.propTypes = {
   /**
    * Sets even spacing for columns and rows
    */
-  columnGap: types.spacing,
+  colGap: types.spacing,
   /**
    * Sets even spacing for columns and rows
    */
