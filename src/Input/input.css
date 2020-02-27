@@ -92,7 +92,9 @@
   &.u-input--tone-critical {
     & input,
     & select {
-      border-color: map-get($foregroundColors, critical);
+      &:not(:focus) {
+        border-color: map-get($foregroundColors, critical);
+      }
     }
   }
 }

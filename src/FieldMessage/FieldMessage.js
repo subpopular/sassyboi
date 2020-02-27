@@ -7,8 +7,14 @@ import './field-message.css'
 const FieldMessage = ({tone, message, ...props}) => {
   return (
     <Inline space="xsmall" {...props}>
-      <Icon name={tone === 'critical' ? 'close' : 'check'} tone={tone} />
-      <Text tone={tone}>{message}</Text>
+      <Icon
+        name={tone === 'critical' ? 'info' : 'check-circle'}
+        size="small"
+        tone={tone}
+      />
+      <Text tone={tone} size="small">
+        {message}
+      </Text>
     </Inline>
   )
 }
