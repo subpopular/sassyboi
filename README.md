@@ -23,46 +23,50 @@ const App = () => {
 
 Check out the [full documentation](https://sassyboi.netlify.com) and [Playroom](https://sassyboi-playroom.netlify.com).
 
-## Developing
+## 🚀 Developing
 
-1. Clone the repository
+1.  **Clone the repository**
 
-```bash
-git clone https://github.com/subpopular/sassyboi.git
-```
+    ```bash
+    git clone https://github.com/subpopular/sassyboi.git
+    ```
 
-2. Install dependencies
+2.  **Install dependencies**
 
-```bash
-cd sassyboi
-yarn install
-```
+    ```bash
+    cd sassyboi
+    yarn install
+    ```
 
-3. Start the component dev server
+3.  **Start the component dev server**
 
-```bash
-yarn start
-```
+    ```bash
+    yarn start
+    ```
 
-The dev server watches for changes in the `src` directory and rebuilds the final output.
+    The dev server watches for changes in the `src` directory and rebuilds the final output.
 
-4. Start documentation site
-   Open a new terminal tab and run (from `www` directory):
+4.  **Start documentation site**
 
-```bash
-cd www
-yarn start
-```
+    Open another terminal tab and run:
 
-This will start up the docs site at http://localhost:8080 React app which is locally linked to the `sassyboi` components.
+    ```bash
+    # open another terminal tab
+    cd www
+    yarn start
+    ```
 
-5. Start Playroom
-   > Open another terminal tab and run (from project root):
+    This will start up the docs site at http://localhost:8080 React app which is locally linked to the `sassyboi` components.
 
-```bash
-# from the project root
-yarn playroom:start
-```
+5.  **Start Playroom**
+
+    Open another terminal tab and run:
+
+    ```bash
+    yarn playroom:start
+    ```
+
+    This will start up a local instance of Playroom at http://localhost:9000 which is also locally linked to the `sassyboi` components.
 
 ## Publishing
 
