@@ -13,6 +13,7 @@ jobs:
         with:
           node-version: 12
       - run: yarn install
+      - run: echo "$GITHUB_REF"
 
   publish-npm:
     needs: build
@@ -24,6 +25,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"}
+      - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/v"}
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
