@@ -21,7 +21,7 @@ const App = () => {
 }
 ```
 
-Check out the [full documentation](https://sassyboi.netlify.com) and [Playroom](https://sassyboi-playroom.netlify.com).
+Check out the [full documentation](https://sassyboi.netlify.com) and [Playroom](https://sassyboi-playground.netlify.com).
 
 ## 🚀 Developing
 
