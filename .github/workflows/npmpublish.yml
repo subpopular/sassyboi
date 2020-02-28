@@ -25,6 +25,9 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: yarn install
+      - run: |
+          git config --local user.email "darekrossman@me.com"
+          git config --local user.name "subpopular"
       - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"}
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
