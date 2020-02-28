@@ -30,13 +30,16 @@
     }
   }
 
-  & .u-text--standard,
-  & .u-text--small {
-    line-height: #{$space-gutter}px;
+  &.u-button--size-large .u-button__inner {
+    height: #{$space-xxlarge}px;
   }
 
-  & .u-text--large {
-    line-height: #{$space-medium}px;
+  &.u-button--size-regular .u-button__inner {
+    height: #{$space-xlarge}px;
+  }
+
+  &.u-button--size-small .u-button__inner {
+    height: #{$space-largeish}px;
   }
 }
 

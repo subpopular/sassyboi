@@ -67,7 +67,7 @@ const Button = React.forwardRef(
       <Text
         className="u-button__text"
         as="div"
-        baseline={false}
+        baseline={true}
         size={fontSizes[size]}
         tone={props.tone || weight === 'link' ? 'link' : 'neutral'}
         align="center"
@@ -83,7 +83,6 @@ const Button = React.forwardRef(
       <Box
         ref={ref}
         as="button"
-        paddingY={!iconOnly && paddingY}
         paddingX={!iconOnly && paddingX}
         boxShadow={weight === 'weak' ? 'borderStandard' : undefined}
         background={bg(weight)}
@@ -91,37 +90,34 @@ const Button = React.forwardRef(
         type="button"
         {...props}
       >
-        {icon || iconRight ? (
-          <Box
-            display="flex"
-            align="center"
-            justify={innerJustify ? 'space-between' : 'center'}
-          >
-            {icon && (
-              <Icon
-                name={icon}
-                size={iconSize}
-                className={`u-icon--${icon}`}
-                tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-                marginRight={hasChildren ? 'xsmall' : undefined}
-              />
-            )}
+        <Box
+          className="u-button__inner"
+          display="flex"
+          align="center"
+          justify={innerJustify ? 'space-between' : 'center'}
+        >
+          {icon && (
+            <Icon
+              name={icon}
+              size={iconSize}
+              className={`u-icon--${icon}`}
+              tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
+              marginRight={hasChildren ? 'xsmall' : undefined}
+            />
+          )}
 
-            {text}
+          {text}
 
-            {iconRight && (
-              <Icon
-                name={iconRight}
-                size={iconSize}
-                className={`u-icon--${iconRight}`}
-                tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
-                marginLeft={hasChildren ? 'xsmall' : undefined}
-              />
-            )}
-          </Box>
-        ) : (
-          text
-        )}
+          {iconRight && (
+            <Icon
+              name={iconRight}
+              size={iconSize}
+              className={`u-icon--${iconRight}`}
+              tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
+              marginLeft={hasChildren ? 'xsmall' : undefined}
+            />
+          )}
+        </Box>
       </Box>
     )
   }

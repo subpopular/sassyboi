@@ -43,7 +43,11 @@ export default postcss.plugin('postcss-sassyboi', (rawopts = {}) => {
       mapGet(),
       calc({mediaQueries: true, selectors: true}),
       functions({
-        functions: {isLight, mod, baseliner: baseliner(variables)},
+        functions: {
+          isLight,
+          mod,
+          baseliner: baseliner(variables),
+        },
       }),
       contrast(),
       nesting(),
