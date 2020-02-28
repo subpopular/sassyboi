@@ -29,5 +29,9 @@ jobs:
           git config --local user.email "darekrossman@me.com"
           git config --local user.name "subpopular"
       - run: yarn publish --new-version ${GITHUB_REF#"refs/tags/"}
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.npm_token}}
