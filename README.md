@@ -1,6 +1,6 @@
 # sassyboi
 
-> A collection of React components and styles [sassyboi.netlify.com](https://sassyboi.netlify.com)
+> A collection of React components and styles. [sassyboi.netlify.com](https://sassyboi.netlify.com)
 
 [![NPM](https://img.shields.io/npm/v/sassyboi.svg)](https://www.npmjs.com/package/sassyboi)
 
@@ -48,10 +48,9 @@ Check out the [full documentation](https://sassyboi.netlify.com) and [Playroom](
 
 4.  **Start documentation site**
 
-    Open another terminal tab and run:
+    Open another terminal tab and navigate to the `www` directory and run:
 
     ```bash
-    # open another terminal tab
     cd www
     yarn start
     ```
@@ -60,7 +59,7 @@ Check out the [full documentation](https://sassyboi.netlify.com) and [Playroom](
 
 5.  **Start Playroom**
 
-    Open another terminal tab and run:
+    Open another terminal tab in the project root and run:
 
     ```bash
     yarn playroom:start
