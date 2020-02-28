@@ -1,4 +1,4 @@
-# @64labs/sassy
+# sassyboi
 
 > A collection of React components and styles [sassyboi.netlify.com](https://sassyboi.netlify.com)
 
@@ -57,8 +57,7 @@ yarn start
 This will start up the docs site at http://localhost:8080 React app which is locally linked to the `sassyboi` components.
 
 5. Start Playroom
-
-Open another terminal tab and run (from project root):
+   > Open another terminal tab and run (from project root):
 
 ```bash
 # from the project root
