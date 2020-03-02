@@ -17,6 +17,7 @@ export {default as Radio} from './Radio/Radio'
 export {default as Checkbox} from './Checkbox/Checkbox'
 export {default as FieldMessage} from './FieldMessage/FieldMessage'
 export {default as Placeholder} from './Placeholder/Placeholder'
+export {default as VerticalDivider} from './VerticalDivider/VerticalDivider'
 
 export {tokens} from './types'
 

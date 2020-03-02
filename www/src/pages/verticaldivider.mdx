@@ -1,0 +1,34 @@
+import {Stack, Placeholder, Box, VerticalDivider} from 'sassyboi'
+import Showcase from '../components/Showcase'
+import PropsTable from '../components/PropsTable'
+export const meta = {
+  name: 'VerticalDivider',
+  component: VerticalDivider,
+  description: 'A divider the separaters vertically aligned elements.',
+  inheritBoxProps: true,
+}
+
+
+<Showcase>
+  <Box display="flex" wrap={true}>
+    <Stack size="large" space="small">
+      <Placeholder height={40} />
+    </Stack>
+    <Stack>
+      <VerticalDivider size="large" darker={true} marginRight="large" tone="black" />
+    </Stack>
+    <Stack size="large" space="small">
+      <Placeholder height={40} />
+    </Stack><Stack>
+      <VerticalDivider size="large" marginRight="large" tone="black" />
+    </Stack>
+    <Stack size="large" space="small">
+      <Placeholder height={40} />
+    </Stack>
+  </Box>
+</Showcase>
+
+
+
+
+

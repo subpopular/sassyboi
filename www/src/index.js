@@ -15,6 +15,7 @@ import {
   Icon,
   Image,
   ScrollBox,
+  VerticalDivider,
 } from 'sassyboi'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {ThemeProvider} from './util/ThemeContext'
@@ -41,6 +42,7 @@ const docPages = [
   'Stack',
   'Select',
   'Text',
+  'VerticalDivider',
 ]
 
 const mdxComponents = {
