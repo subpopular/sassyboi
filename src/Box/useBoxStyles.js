@@ -29,6 +29,10 @@ const useBoxStyles = ({
   marginY,
   position,
   size,
+  xScrollable,
+  yScrollable,
+  height,
+  width,
   wrap,
 }) => {
   const resolvedPaddingTop = paddingTop || paddingY || padding
@@ -81,6 +85,8 @@ const useBoxStyles = ({
     marginRightClasses,
     marginBottomClasses,
     marginLeftClasses,
+    classes(height, 'height'),
+    classes(width, 'width'),
     classes(display, 'display'),
     classes(flexGrow, 'grow'),
     classes(size, 'size'),
@@ -94,6 +100,10 @@ const useBoxStyles = ({
       [`shadow--${boxShadow}-on-${background}`]:
         boxShadow && background && background !== 'transparent',
     },
+    {
+      ['u-box--y-scrollable']: yScrollable,
+      ['u-box--x-scrollable']: xScrollable
+    }
   ]
 }
 
