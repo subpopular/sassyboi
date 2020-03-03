@@ -4,8 +4,8 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import './content-block.css'
 
-const ContentBlock = ({width = 'large', ...props}) => {
-  const classes = cx('u-content-block', `u-content-block--${width}`)
+const ContentBlock = ({width = 'large', className, ...props}) => {
+  const classes = cx('u-content-block', `u-content-block--${width}`, className)
 
   return <Box className={classes} paddingX="gutter" {...props} />
 }
