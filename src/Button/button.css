@@ -30,6 +30,10 @@
     }
   }
 
+  & [class*='u-text--'] {
+    line-height: 1;
+  }
+
   &.u-button--size-large .u-button__inner {
     height: #{$space-xxlarge}px;
   }
