@@ -109,12 +109,12 @@ export default {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.165,
-      capHeight: 0.6,
+      descenderHeightScale: 0.147,
+      capHeight: 0.75,
     },
     heading: {
-      descenderHeightScale: 0.165,
-      capHeight: 0.6,
+      descenderHeightScale: 0.147,
+      capHeight: 0.75,
     },
   },
 
@@ -235,7 +235,7 @@ export default {
     xlarge: {
       mobile: {
         size: 24,
-        rows: 9,
+        rows: 8,
       },
       tablet: {
         size: 34,
