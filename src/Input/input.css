@@ -24,7 +24,8 @@
   }
 
   & input,
-  & select {
+  & select,
+  & textarea {
     display: block;
     border-radius: 0;
     position: relative;
@@ -67,7 +68,8 @@
       margin-bottom: #{$space-xsmall}px;
       font-weight: $bold-font-weight;
     }
-    & input {
+    & input,
+    & textarea {
       padding: 7px 10px;
       border: 1px solid #e1e1e1;
       border-radius: map-get(map-get($border, radius), standard);

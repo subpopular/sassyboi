@@ -41,6 +41,7 @@ const docPages = [
   'Stack',
   'Select',
   'Text',
+  'Textarea',
 ]
 
 const mdxComponents = {
