@@ -109,12 +109,12 @@ export default {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.147,
-      capHeight: 0.75,
+      descenderHeightScale: 0.15,
+      capHeight: 0.7,
     },
     heading: {
-      descenderHeightScale: 0.147,
-      capHeight: 0.75,
+      descenderHeightScale: 0.15,
+      capHeight: 0.7,
     },
   },
 

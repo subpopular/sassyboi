@@ -47,18 +47,17 @@ export const baseliner = (vars) => (size, rows, scaleKey, rule) => {
   const lineHeightScale = lineHeight / size
   const typeOffset = (lineHeightScale - 1.0) / 2.0 + descenderHeightScale
   const topSpace = lineHeight - capHeight * size
-  // const halfGrid = grid / 2
-  const gridMod = topSpace % grid
+  const halfGrid = grid / 2
+  const gridMod = topSpace % halfGrid
   const heightCorrectionRaw = topSpace - gridMod
-  // const heightCorrection = heightCorrectionRaw + 1.0
-  const heightCorrection = typeOffset * 2
+  const heightCorrection = heightCorrectionRaw + 1.0
 
   if (rule === 'transform') {
     return `translateY(${typeOffset}em)`
   }
 
   if (rule === 'marginTop') {
-    return `-${heightCorrection}em`
+    return `-${heightCorrection}px`
   }
 
   if (rule === 'negativeTransform') {
