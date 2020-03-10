@@ -27,8 +27,8 @@ const Icon = ({
     {
       [`u-icon--${size}`]: size,
       [`tone--${tone}`]: tone,
-      [`tone--${tone}`]: tone && !background,
       [`tone--${tone}-on-${background}`]: background,
+      [`tone--${tone}`]: tone,
     },
     className
   )
