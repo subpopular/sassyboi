@@ -1,16 +1,17 @@
 import React, {useState, useCallback, useEffect} from 'react'
+import t from 'prop-types'
+import * as types from '../types'
 import cx from 'classnames'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import FieldMessage from '../FieldMessage/FieldMessage'
 import './textarea.css'
 
-const Input = ({
+const Textarea = ({
   label,
   className,
-  rows = 3,
   message,
-  tone,
+  tone = 'neutral',
   onChange,
   ...props
 }) => {
@@ -56,7 +57,6 @@ const Input = ({
       <Box
         as="textarea"
         id={props.id || `input_${props.name}`}
-        rows={rows}
         onChange={handleChange}
         {...props}
       />
@@ -68,4 +68,15 @@ const Input = ({
   )
 }
 
-export default Input
+Textarea.propTypes = {
+  /**
+   * Renders a message below the field. Useful for validation.
+   */
+  message: t.string,
+  /**
+   * Controls the style of the given message prop.
+   */
+  tone: t.oneOf(['critical', 'positive', 'neutral']),
+}
+
+export default Textarea
