@@ -82,7 +82,7 @@ const colors = {
   },
 }
 
-module.exports = {
+export default {
   'font-family':
     'Roboto, "Helvetica Neue", HelveticaNeue, Helvetica, Arial, sans-serif',
   'header-font-family':

@@ -1,4 +1,4 @@
-export const isLight = (color) => {
+export const isLight = (color, c1, c2) => {
   console.log(color)
   // Variables for red, green, blue values
   var r, g, b, hsp
@@ -27,9 +27,9 @@ export const isLight = (color) => {
 
   // Using the HSP value, determine whether the color is light or dark
   if (hsp > 127.5) {
-    return true
+    return c1
   } else {
-    return false
+    return c2
   }
 }
 
