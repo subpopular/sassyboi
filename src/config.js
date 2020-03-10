@@ -41,7 +41,7 @@ const baseColors = {
   link: 'rebeccapurple',
   linkVisited: 'rebeccapurple',
   secondary: '#a0a0a0',
-  secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
+  secondaryInverted: '#ffffff',
   subtle: '#eee',
   featureSlider: '#0093b4',
   gray: '#f5f5f5',
@@ -60,7 +60,7 @@ const colors = {
     promote: baseColors.promote,
     positive: baseColors.positive,
     secondary: baseColors.secondary,
-    secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
+    secondaryInverted: baseColors.secondaryInverted,
     subtle: baseColors.subtle,
   },
   background: {
