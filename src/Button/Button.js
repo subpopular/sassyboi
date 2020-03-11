@@ -68,7 +68,7 @@ const Button = React.forwardRef(
         <Text
           className="u-button__text"
           as="div"
-          baseline={false}
+          baseline={true}
           size={fontSizes[size]}
           tone={props.tone || weight === 'link' ? 'link' : 'neutral'}
           align="center"

@@ -99,6 +99,9 @@
       .u-box--align-#{$alignValue}-0 {
         align-items: $alignValue;
       }
+      .u-box--alignSelf-#{$alignValue}-0 {
+        align-self: $alignValue;
+      }
     }
     @each $justifyValue
       in (flex-start, flex-end, center, space-around, space-between, stretch)
@@ -130,6 +133,9 @@
         .u-box--alignItems-#{$alignValue}-#{$i},
         .u-box--align-#{$alignValue}-#{$i} {
           align-items: $alignValue;
+        }
+        .u-box--alignSelf-#{$alignValue}-#{$i} {
+          align-self: $alignValue;
         }
       }
       @each $justifyValue
