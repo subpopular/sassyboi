@@ -1,6 +1,6 @@
 # sassyboi
 
-> A collection of React components and styles. [sassyboi.netlify.com](https://sassyboi.netlify.com)
+> A basic collection of React components and styles. [sassyboi.netlify.com](https://sassyboi.netlify.com)
 
 [![NPM](https://img.shields.io/npm/v/sassyboi.svg)](https://www.npmjs.com/package/sassyboi)
 
