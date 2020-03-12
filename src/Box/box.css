@@ -75,6 +75,9 @@
     width: #{$value}px;
     height: #{$value}px;
   }
+  .u-box--minHeight-#{$space}-#{$i} {
+    min-height: #{$value}px;
+  }
   .u-box--height-#{$space}-#{$i} {
     height: #{$value}px;
   }
@@ -155,14 +158,21 @@
   }
 }
 
-.u-box--y-scrollable {
-  position: relative;
-  overflow-y: scroll;
-}
+@each $overflowValue in (hidden, visible, auto, scroll) {
+  .u-box--overflow-#{$overflowValue} {
+    position: relative;
+    overflow: $overflowValue;
+  }
 
-.u-box--x-scrollable {
-  position: relative;
-  overflow-x: scroll;
+  .u-box--overflowX-#{$overflowValue} {
+    position: relative;
+    overflow-x: $overflowValue;
+  }
+
+  .u-box--overflowY-#{$overflowValue} {
+    position: relative;
+    overflow-y: $overflowValue;
+  }
 }
 
 .bg--transparent {

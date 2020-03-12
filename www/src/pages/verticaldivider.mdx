@@ -1,4 +1,4 @@
-import {Stack, Placeholder, Box, VerticalDivider} from 'sassyboi'
+import {Placeholder, Inline, VerticalDivider} from 'sassyboi'
 import Showcase from '../components/Showcase'
 import PropsTable from '../components/PropsTable'
 export const meta = {
@@ -10,22 +10,13 @@ export const meta = {
 
 
 <Showcase>
-  <Box display="flex" wrap={true}>
-    <Stack size="large" space="small">
-      <Placeholder height={40} />
-    </Stack>
-    <Stack>
-      <VerticalDivider size="large" darker={true} marginRight="large" tone="black" />
-    </Stack>
-    <Stack size="large" space="small">
-      <Placeholder height={40} />
-    </Stack><Stack>
-      <VerticalDivider size="large" marginRight="large" tone="black" />
-    </Stack>
-    <Stack size="large" space="small">
-      <Placeholder height={40} />
-    </Stack>
-  </Box>
+  <Inline>
+    <Placeholder height={40} width={40}/>
+    <VerticalDivider size="large" tone="brand" />
+    <Placeholder height={40} width={40}/>
+    <VerticalDivider size="large" tone="brand" />
+    <Placeholder height={40} width={40}/>
+  </Inline>
 </Showcase>
 
 

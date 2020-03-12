@@ -29,8 +29,10 @@ const useBoxStyles = ({
   marginY,
   position,
   size,
-  xScrollable,
-  yScrollable,
+  overflow,
+  overflowX,
+  overflowY,
+  minHeight,
   height,
   width,
   wrap,
@@ -85,6 +87,7 @@ const useBoxStyles = ({
     marginRightClasses,
     marginBottomClasses,
     marginLeftClasses,
+    classes(minHeight, 'minHeight'),
     classes(height, 'height'),
     classes(width, 'width'),
     classes(display, 'display'),
@@ -101,9 +104,10 @@ const useBoxStyles = ({
         boxShadow && background && background !== 'transparent',
     },
     {
-      ['u-box--y-scrollable']: yScrollable,
-      ['u-box--x-scrollable']: xScrollable
-    }
+      [`u-box--overflowY-${overflowY}`]: overflowY,
+      [`u-box--overflowX-${overflowX}`]: overflowX,
+      [`u-box--overflow-${overflow}`]: overflow,
+    },
   ]
 }
 

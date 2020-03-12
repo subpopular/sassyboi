@@ -36,10 +36,12 @@ const Box = React.forwardRef(
       flexGrow,
       position,
       size,
+      minHeight,
       height,
       width,
-      xScrollable = false,
-      yScrollable = false,
+      overflow,
+      overflowX,
+      overflowY,
       wrap = false,
       ...props
     },
@@ -71,10 +73,12 @@ const Box = React.forwardRef(
       flexGrow,
       position,
       size,
+      minHeight,
       height,
       width,
-      xScrollable,
-      yScrollable,
+      overflow,
+      overflowX,
+      overflowY,
       wrap,
     })
 
@@ -182,13 +186,17 @@ Box.propTypes = {
    */
   boxShadow: t.string,
   /**
-   * Allows content to scroll on x-axis
+   * Defines overflow behavior on X and Y axis
    */
-  xScrollable: t.bool,
+  overflow: types.overflow,
   /**
-   * Allows content to scroll on y-axis
+   * Defines overflow behavior on X axis
    */
-  yScrollable: t.bool,
+  overflowX: types.overflow,
+  /**
+   * Defines overflow behavior on Y axis
+   */
+  overflowY: types.overflow,
   /**
    * Applies a set height
    */

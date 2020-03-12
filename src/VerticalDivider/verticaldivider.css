@@ -5,7 +5,15 @@
     }
   }
 
+@each $value $space in $spacingMap {
+  .u-vertical-divider--#{$space} {
+    height: #{$value}px;
+  }
+  .u-vertical-divider--minheight-#{$space} {
+    min-height: #{$value}px;
+  }
+}
 
-.u-vertical-divider--dark {
-  border-right: 1px solid darken(map-get($foregroundColors, subtle), 5);
+.u-vertical-divider--height-full {
+  height: 100%;
 }
