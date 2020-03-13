@@ -1,7 +1,5 @@
-.u-divider {
-  border-top: 1px solid map-get($foregroundColors, subtle);
-}
-
-.u-divider--dark {
-  border-top: 1px solid darken(map-get($foregroundColors, subtle), 5);
+@each $color $tone in $base-colors {
+  .u-divider-#{$tone} {
+    border-top: 1px solid $color;
+  }
 }

@@ -3,13 +3,31 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import './scrollbox.css'
 
-const ScrollBox = ({className, children, ...props}) => {
+const ScrollBox = ({
+  className,
+  scrollX = false,
+  scrollY = false,
+  children,
+  ...props
+}) => {
   const classes = cx('u-scrollbox', className)
 
   return (
-    <Box className={classes} {...props}>
-      <Box className='u-scrollbox__wrapper'>
-        <Box className='u-scrollbox__container'>{children}</Box>
+    <Box
+      width="full"
+      position="relative"
+      overflow="hidden"
+      className={classes}
+      {...props}
+    >
+      <Box
+        height="full"
+        width="full"
+        overflowX={scrollX ? 'scroll' : undefined}
+        overflowY={scrollY ? 'scroll' : undefined}
+        className="u-scrollbox__wrapper"
+      >
+        <Box height="full">{children}</Box>
       </Box>
     </Box>
   )

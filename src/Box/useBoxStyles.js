@@ -30,6 +30,12 @@ const useBoxStyles = ({
   marginY,
   position,
   size,
+  overflow,
+  overflowX,
+  overflowY,
+  minHeight,
+  height,
+  width,
   wrap,
 }) => {
   const resolvedPaddingTop = paddingTop || paddingY || padding
@@ -82,6 +88,9 @@ const useBoxStyles = ({
     marginRightClasses,
     marginBottomClasses,
     marginLeftClasses,
+    classes(minHeight, 'minHeight'),
+    classes(height, 'height'),
+    classes(width, 'width'),
     classes(display, 'display'),
     classes(flexGrow, 'grow'),
     classes(size, 'size'),
@@ -89,6 +98,9 @@ const useBoxStyles = ({
     classes(alignSelf, 'alignSelf'),
     classes(justifyContent || justify, 'justifyContent'),
     classes(position, 'position'),
+    classes(overflow, 'overflow'),
+    classes(overflowX, 'overflowX'),
+    classes(overflowY, 'overflowY'),
     {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
     {
       [`shadow--${boxShadow}`]:
