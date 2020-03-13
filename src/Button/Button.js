@@ -70,7 +70,7 @@ const Button = React.forwardRef(
           as="div"
           baseline={true}
           size={fontSizes[size]}
-          tone={props.tone || weight === 'link' ? 'link' : 'neutral'}
+          tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
           align="center"
           weight="regular"
           display={children.props && children.props.display}
@@ -85,9 +85,11 @@ const Button = React.forwardRef(
       <Box
         ref={ref}
         as="button"
-        paddingX={!iconOnly && paddingX}
-        boxShadow={weight === 'weak' ? 'borderStandard' : undefined}
-        background={bg(weight)}
+        paddingX={props.paddingX || (!iconOnly && paddingX)}
+        boxShadow={
+          props.boxShadow || (weight === 'weak' ? 'borderStandard' : undefined)
+        }
+        background={props.background || bg(weight)}
         className={classes}
         type="button"
         {...props}
