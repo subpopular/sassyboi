@@ -5,7 +5,13 @@ import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
 import './icon.css'
 
-const Icon = ({name, size = 'gutter', tone, className, ...props}) => {
+const Icon = ({
+  name,
+  size = 'gutter',
+  tone = 'neutral',
+  className,
+  ...props
+}) => {
   const backgroundContext = useBackground()
 
   const background =
@@ -21,8 +27,8 @@ const Icon = ({name, size = 'gutter', tone, className, ...props}) => {
     {
       [`u-icon--${size}`]: size,
       [`tone--${tone}`]: tone,
-      [`tone--${tone}`]: tone && !background,
       [`tone--${tone}-on-${background}`]: background,
+      [`tone--${tone}`]: tone,
     },
     className
   )

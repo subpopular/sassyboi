@@ -2,11 +2,18 @@ import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter'
 import {googlecode as syntaxTheme} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {Link} from 'react-router-dom'
-import {Box, Button, Text, Stack, Inline} from 'sassyboi'
+import {Box, Button, Text, Stack, Inline, Icon} from 'sassyboi'
 import PropsTable from './PropsTable'
 
 const DocLayout = ({children, meta}) => {
-  const {name, description, component, inheritBoxProps} = meta
+  const {
+    name,
+    description,
+    component,
+    inheritBoxProps,
+    element,
+    elementAttributesUrl,
+  } = meta
 
   return (
     <Stack space="xlarge" paddingBottom="xxlarge">
@@ -38,26 +45,47 @@ const DocLayout = ({children, meta}) => {
         {children && <Stack>{children}</Stack>}
 
         <Stack space="large">
-          <Stack space="gutter">
-            <Text weight="strong" size="large">
-              Props
-            </Text>
+          <Text weight="strong" size="large">
+            Component Props
+          </Text>
+
+          <PropsTable component={component} />
+
+          <Stack space="small" background="subtle" padding="gutter">
             {inheritBoxProps && (
-              <Text>
-                Inherits all{' '}
-                <Text
-                  as={Link}
-                  tone="link"
-                  to="/components/box"
-                  baseline={false}
-                >
-                  Box props
-                </Text>{' '}
-                as well as the following:
-              </Text>
+              <Inline space="xsmall">
+                <Icon name="info" size="small" />
+                <Text>
+                  Accepts all props from{' '}
+                  <Text
+                    as={Link}
+                    tone="link"
+                    to="/components/box"
+                    baseline={false}
+                  >
+                    {`<Box />`}
+                  </Text>
+                </Text>
+              </Inline>
+            )}
+            {element && elementAttributesUrl && (
+              <Inline space="xsmall">
+                <Icon name="info" size="small" />
+                <Text>
+                  All other props are passed as attributes to the underlying{' '}
+                  <Text
+                    as="a"
+                    target="__blank"
+                    tone="link"
+                    href={elementAttributesUrl}
+                    baseline={false}
+                  >
+                    {element}
+                  </Text>
+                </Text>
+              </Inline>
             )}
           </Stack>
-          <PropsTable component={component} />
         </Stack>
       </Stack>
     </Stack>

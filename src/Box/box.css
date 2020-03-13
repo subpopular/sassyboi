@@ -108,6 +108,9 @@
       .u-box--align-#{$alignValue}-0 {
         align-items: $alignValue;
       }
+      .u-box--alignSelf-#{$alignValue}-0 {
+        align-self: $alignValue;
+      }
     }
     @each $justifyValue
       in (flex-start, flex-end, center, space-around, space-between, stretch)
@@ -139,6 +142,9 @@
         .u-box--alignItems-#{$alignValue}-#{$i},
         .u-box--align-#{$alignValue}-#{$i} {
           align-items: $alignValue;
+        }
+        .u-box--alignSelf-#{$alignValue}-#{$i} {
+          align-self: $alignValue;
         }
       }
       @each $justifyValue
@@ -192,16 +198,33 @@
     color: $color;
   }
 
-  .tone--neutral-on-#{$tone} {
-    color: contrast($color);
+  .tone--neutral.tone--neutral-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, neutral),
+      map-get($base-colors, neutralInverted)
+    );
   }
 
-  .tone--secondary-on-#{$tone} {
-    color: contrast($color);
+  .tone--secondary.tone--secondary-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, secondary),
+      map-get($base-colors, secondaryInverted)
+    );
   }
 
   .shadow--borderStandard-on-#{$tone} {
-    box-shadow: inset 0 0 0 2px contrast($color);
+    box-shadow: inset
+      0
+      0
+      0
+      2px
+      isLight(
+        $color,
+        map-get($base-colors, subtle),
+        map-get($base-colors, white)
+      );
   }
 }
 
