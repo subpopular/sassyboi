@@ -3,7 +3,7 @@ import cx from 'classnames'
 import Box from '../Box/Box'
 import './divider.css'
 
-const Divider = ({tone = "subtle", className, ...props}) => {
+const Divider = ({tone = 'subtle', className, ...props}) => {
   return (
     <Box
       aria-hidden
