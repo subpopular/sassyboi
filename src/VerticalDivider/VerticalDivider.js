@@ -5,7 +5,7 @@ import Box from "../Box/Box"
 import "./verticaldivider.css"
 import * as types from '../types'
 const VerticalDivider = ({ tone = "subtle", className, size, ...props }) => {
-  const classes = cx(className, `u-vertical-divider--${tone}`, size ? `u-vertical-divider--height-${size}` : 'u-vertical-divider--height-full')
+  const classes = cx(className, `u-vertical-divider--${tone}`, {[`u-vertical-divider--height-${size}`]: size})
   return <Box aria-hidden height={size} minHeight={size ? undefined : 'smallish'}className={classes} {...props} />
 }
 

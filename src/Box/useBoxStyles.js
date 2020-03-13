@@ -98,17 +98,15 @@ const useBoxStyles = ({
     classes(alignSelf, 'alignSelf'),
     classes(justifyContent || justify, 'justifyContent'),
     classes(position, 'position'),
+    classes(overflow, 'overflow'),
+    classes(overflowX, 'overflowX'),
+    classes(overflowY, 'overflowY'),
     {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
     {
       [`shadow--${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),
       [`shadow--${boxShadow}-on-${background}`]:
         boxShadow && background && background !== 'transparent',
-    },
-    {
-      [`u-box--overflowY-${overflowY}`]: overflowY,
-      [`u-box--overflowX-${overflowX}`]: overflowX,
-      [`u-box--overflow-${overflow}`]: overflow,
     },
   ]
 }

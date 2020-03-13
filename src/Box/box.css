@@ -92,6 +92,18 @@
 
 @each $bp $i in $breakpoints {
   @if $i == 0 {
+    .u-box--height-full-0 {
+      height: 100%
+    }
+    .u-box--height-half-0 {
+      height: 50%
+    }
+    .u-box--width-full-0 {
+      width: 100%
+    }
+    .u-box--width-half-0 {
+      width: 50%
+    }
     @each $value $space in $spacingMap {
       @include boxPadding($space, $value, 0);
       @include boxMargin($space, $value, 0);
@@ -125,8 +137,36 @@
         flex-grow: $k;
       }
     }
+    @each $overflowValue in (hidden, visible, auto, scroll) {
+      .u-box--overflow-#{$overflowValue}-0 {
+        position: relative;
+        overflow: $overflowValue;
+      }
+    
+      .u-box--overflowX-#{$overflowValue}-0 {
+        position: relative;
+        overflow-x: $overflowValue;
+      }
+    
+      .u-box--overflowY-#{$overflowValue}-0 {
+        position: relative;
+        overflow-y: $overflowValue;
+      }
+    }
   } @else {
     @media (min-width: #{$bp}px) {
+      .u-box--height-full-#{$i} {
+        height: 100%
+      }
+      .u-box--height-half-#{$i} {
+        height: 50%
+      }
+      .u-box--width-full-#{$i} {
+        width: 100%
+      }
+      .u-box--width-half-#{$i} {
+        width: 50%
+      }
       @each $value $space in $spacingMap {
         @include boxPadding($space, $value, $i);
         @include boxMargin($space, $value, $i);
@@ -160,24 +200,23 @@
           flex-grow: $k;
         }
       }
+      @each $overflowValue in (hidden, visible, auto, scroll) {
+        .u-box--overflow-#{$overflowValue}-#{$i} {
+          position: relative;
+          overflow: $overflowValue;
+        }
+      
+        .u-box--overflowX-#{$overflowValue}-#{$i} {
+          position: relative;
+          overflow-x: $overflowValue;
+        }
+      
+        .u-box--overflowY-#{$overflowValue}-#{$i} {
+          position: relative;
+          overflow-y: $overflowValue;
+        }
+      }
     }
-  }
-}
-
-@each $overflowValue in (hidden, visible, auto, scroll) {
-  .u-box--overflow-#{$overflowValue} {
-    position: relative;
-    overflow: $overflowValue;
-  }
-
-  .u-box--overflowX-#{$overflowValue} {
-    position: relative;
-    overflow-x: $overflowValue;
-  }
-
-  .u-box--overflowY-#{$overflowValue} {
-    position: relative;
-    overflow-y: $overflowValue;
   }
 }
 

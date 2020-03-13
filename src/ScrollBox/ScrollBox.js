@@ -7,9 +7,9 @@ const ScrollBox = ({className, scrollX = false, scrollY = false, children, ...pr
   const classes = cx('u-scrollbox', className)
 
   return (
-    <Box className={classes} {...props}>
-      <Box overflowX={scrollX ? 'scroll' : undefined} overflowY={scrollY ? 'scroll' : undefined} className='u-scrollbox__wrapper'>
-        <Box className='u-scrollbox__container'>{children}</Box>
+    <Box height="full" width="full" overflow="hidden" className={classes} {...props}>
+      <Box height="full" overflowX={scrollX ? 'scroll' : undefined} overflowY={scrollY ? 'scroll' : undefined} className='u-scrollbox__wrapper'>
+        <Box height="full">{children}</Box>
       </Box>
     </Box>
   )
