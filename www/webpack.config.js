@@ -2,6 +2,7 @@ const path = require('path')
 const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const sassyboi = require('sassyboi/dist/postcss-sassyboi')
 
 const dist = path.resolve(__dirname, 'dist')
@@ -14,9 +15,10 @@ module.exports = (env) => {
 
   let plugins = [
     new HtmlWebPackPlugin({
-      template: './src/index.html',
+      template: './src/index.ejs',
       filename: './index.html',
     }),
+    new SpriteLoaderPlugin({plainSprite: true}),
   ]
 
   if (prod) {
@@ -56,6 +58,19 @@ module.exports = (env) => {
             {
               loader: 'html-loader',
             },
+          ],
+        },
+        {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                extract: true,
+                publicPath: '/static/',
+              },
+            },
+            'svgo-loader',
           ],
         },
         {

@@ -1,5 +1,5 @@
 import 'focus-visible'
-import React, {useEffect} from 'react'
+import React from 'react'
 import {render} from 'react-dom'
 import {MDXProvider} from '@mdx-js/react'
 import {
@@ -8,15 +8,10 @@ import {
   ContentBlock,
   Column,
   Divider,
-  Inline,
-  Button,
   Stack,
   Text,
-  Icon,
-  Image,
-  ScrollBox,
-  VerticalDivider,
 } from 'sassyboi'
+import githubIcon from 'sassyboi/dist/icons/github.svg'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {ThemeProvider} from './util/ThemeContext'
 import DocLayout from './components/DocLayout'
@@ -59,6 +54,8 @@ const mdxComponents = {
 }
 
 const App = () => {
+  console.log(githubIcon)
+
   return (
     <ThemeProvider theme={theme}>
       <Router>
@@ -67,6 +64,9 @@ const App = () => {
             <Text heading size="standard">
               Sassyboi Docs
             </Text>
+            <svg>
+              <use xlinkHref={githubIcon.url}></use>
+            </svg>
           </ContentBlock>
         </Box>
 
@@ -123,15 +123,6 @@ const App = () => {
     </ThemeProvider>
   )
 }
-
-fetch('https://unpkg.com/feather-icons@4.26.0/dist/feather-sprite.svg')
-  .then((response) => response.text())
-  .then((text) => {
-    const div = document.createElement('div')
-    div.innerHTML = text
-    div.hidden = true
-    document.body.insertBefore(div, document.body.childNodes[0])
-  })
 
 var mountNode = document.getElementById('app')
 render(<App />, mountNode)

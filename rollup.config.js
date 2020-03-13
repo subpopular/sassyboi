@@ -5,6 +5,7 @@ import postcss from 'rollup-plugin-postcss'
 import cssImports from 'postcss-import'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
+import copy from 'rollup-plugin-copy'
 import pkg from './package.json'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -39,6 +40,9 @@ const mainConfig = {
     }),
     resolve(),
     commonjs(),
+    copy({
+      targets: [{src: 'src/svg/*.svg', dest: 'dist/icons'}],
+    }),
   ],
 }
 
