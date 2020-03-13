@@ -1,5 +1,4 @@
 @import 'sassyboi/dist/index.css';
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
 
 * {
   margin: 0;
@@ -21,37 +20,19 @@ a {
   text-decoration: none;
 }
 
+code.u-text {
+  font-family: monospace;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: color(map-get($base-colors, info) l(95%));
+}
+
 .u-cols.props-table {
   grid-template-columns: 120px 270px 80px 1fr;
   align-items: center;
 }
 
 .props-table .u-col {
-}
-
-.u-box.code {
-  padding: 0px 5px;
-  border-radius: 3px;
-}
-
-.propCodes {
-  display: flex;
-  flex-wrap: wrap;
-  margin: -3px;
-}
-
-.code {
-  background: rgb(248, 248, 248);
-  border: 1px solid #dee3fb;
-}
-
-.propCodes .code {
-  margin: 3px;
-}
-
-.code .u-text {
-  color: #444;
-  font-family: monospace;
 }
 
 .mdx-text .u-text + .u-text {

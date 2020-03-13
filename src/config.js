@@ -27,6 +27,7 @@ const spacingMap = {
 const baseColors = {
   brand: '#445560',
   brandAccent: '#d80a86',
+  brandAccentAccessible: '#ce0c80',
   formAccent: '#d80a86',
   white: '#fff',
   focus: 'rebeccapurple',
@@ -40,8 +41,10 @@ const baseColors = {
   link: 'rebeccapurple',
   linkVisited: 'rebeccapurple',
   secondary: '#a0a0a0',
-  secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
+  secondaryInverted: '#ffffff',
   subtle: '#eee',
+  featureSlider: '#0093b4',
+  gray: '#f5f5f5',
 }
 
 const colors = {
@@ -57,7 +60,7 @@ const colors = {
     promote: baseColors.promote,
     positive: baseColors.positive,
     secondary: baseColors.secondary,
-    secondaryInverted: 'hsla(0, 0%, 100%, 0.65)',
+    secondaryInverted: baseColors.secondaryInverted,
     subtle: baseColors.subtle,
   },
   background: {
@@ -96,9 +99,10 @@ export default {
   grid,
 
   breakpoints: {
-    0: 320,
-    1: 560,
-    2: 1024,
+    0: 0,
+    1: 480,
+    2: 768,
+    3: 1024,
   },
 
   contentWidth: {
@@ -109,11 +113,11 @@ export default {
 
   'font-scale': {
     text: {
-      descenderHeightScale: 0.165,
+      descenderHeightScale: 0.15,
       capHeight: 0.7,
     },
     heading: {
-      descenderHeightScale: 0.165,
+      descenderHeightScale: 0.15,
       capHeight: 0.7,
     },
   },

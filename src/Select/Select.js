@@ -55,19 +55,23 @@ const Select = ({
       >
         <span>{label || ' '}</span>
       </Text>
-      <select
-        id={props.id || `input_${props.name}`}
-        onChange={handleChange}
-        {...props}
-      >
-        <option value="" hidden {...defaultSelectionProps}></option>
-        {children}
-      </select>
-      <Icon
-        name="chevron-down"
-        size="small"
-        className="u-input--select__chevron"
-      />
+
+      <Box position="relative">
+        <select
+          id={props.id || `input_${props.name}`}
+          onChange={handleChange}
+          {...props}
+        >
+          <option value="" hidden {...defaultSelectionProps}></option>
+          {children}
+        </select>
+
+        <Icon
+          name="chevron-down"
+          size="small"
+          className="u-input--select__chevron"
+        />
+      </Box>
 
       {message && (
         <FieldMessage marginTop="xsmall" tone={tone} message={message} />

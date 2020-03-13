@@ -43,6 +43,7 @@ const docPages = [
   'Select',
   'Text',
   'VerticalDivider',
+  'Textarea',
 ]
 
 const mdxComponents = {

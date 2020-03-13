@@ -31,6 +31,9 @@ const Stack = ({
 
               <Box
                 {...(child.props.display && {display: child.props.display})}
+                {...(child.props.alignSelf && {
+                  alignSelf: child.props.alignSelf,
+                })}
                 marginTop={i > 0 ? space : undefined}
                 className="u-stack__item"
               >

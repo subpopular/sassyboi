@@ -1,6 +1,6 @@
 {
   "name": "sassyboi",
-  "version": "1.0.35",
+  "version": "1.0.44",
   "description": "A collection of React components and styles",
   "author": "subpopular",
   "license": "MIT",
@@ -79,6 +79,7 @@
   ],
   "dependencies": {
     "classnames": "^2.2.6",
+    "get-contrast": "^2.0.0",
     "postcss-advanced-variables": "^3.0.0",
     "postcss-calc": "^7.0.1",
     "postcss-color-function": "^4.1.0",

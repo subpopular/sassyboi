@@ -62,18 +62,18 @@ const PropsTable = ({component}) => {
               </Column>
               <Column span={1}>
                 {propValues ? (
-                  <Box className="propCodes">
+                  <Inline space="smallish">
                     {propValues.map((val) => (
-                      <Box
-                        className="code"
+                      <Text
+                        as="code"
                         key={`${propName}-${val.value || val}`}
+                        baseline={false}
+                        size="standard"
                       >
-                        <Text baseline={false}>
-                          {val.value ? val.value.replace(/'/g, '') : val}
-                        </Text>
-                      </Box>
+                        {val.value ? val.value.replace(/'/g, '') : val}
+                      </Text>
                     ))}
-                  </Box>
+                  </Inline>
                 ) : (
                   <Text>
                     {prop.type && prop.type.name === 'union'
@@ -92,18 +92,17 @@ const PropsTable = ({component}) => {
                 ) : null}
               </Column>
               <Column span={1}>
-                <Stack space="xsmall">
+                <Stack space="small">
                   {prop.description && <Text>{prop.description}</Text>}
-                  {prop.defaultValue && (
-                    <Inline space="xxsmall">
-                      <Text>Default:</Text>{' '}
-                      <Box className="code">
-                        <Text baseline={false}>
+                  {prop.defaultValue &&
+                    prop.defaultValue.value !== 'undefined' && (
+                      <Text>
+                        Default:{' '}
+                        <Text as="code" baseline={false}>
                           {prop.defaultValue.value.replace(/'/g, '')}
                         </Text>
-                      </Box>
-                    </Inline>
-                  )}
+                      </Text>
+                    )}
                 </Stack>
               </Column>
               <Column span={4}>
