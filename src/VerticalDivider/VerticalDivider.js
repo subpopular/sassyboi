@@ -18,10 +18,6 @@ VerticalDivider.propTypes = {
      * Defines the Height of the Vertical Divider
      */
     size: types.spacing,
-    /**
-     * Defines the Minimum Height of the Vertical Divider, but can only be used when the Size prop is undefined
-     */
-    minHeight: types.spacing,
 }
 
 VerticalDivider.displayName = 'VerticalDivider'
