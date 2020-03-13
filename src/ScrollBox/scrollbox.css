@@ -1,23 +1,8 @@
-.u-scrollbox {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-}
-
 .u-scrollbox__wrapper {
-  width: 100%;
-  height: 100%;
-  overflow-y: hidden;
-  overflow-x: scroll;
   -ms-overflow-style: none; /* IE */
   overflow: -moz-scrollbars-none;
 
   &::-webkit-scrollbar {
     display: none;
   }
-}
-
-.u-scrollbox__container {
-  height: 100%;
-  display: inline-flex;
 }

@@ -75,6 +75,15 @@
     width: #{$value}px;
     height: #{$value}px;
   }
+  .u-box--minHeight-#{$space}-#{$i} {
+    min-height: #{$value}px;
+  }
+  .u-box--height-#{$space}-#{$i} {
+    height: #{$value}px;
+  }
+  .u-box--width-#{$space}-#{$i} {
+    width: #{$value}px;
+  }
 }
 
 .u-box--wrap {
@@ -83,6 +92,18 @@
 
 @each $bp $i in $breakpoints {
   @if $i == 0 {
+    .u-box--height-full-0 {
+      height: 100%;
+    }
+    .u-box--height-half-0 {
+      height: 50%;
+    }
+    .u-box--width-full-0 {
+      width: 100%;
+    }
+    .u-box--width-half-0 {
+      width: 50%;
+    }
     @each $value $space in $spacingMap {
       @include boxPadding($space, $value, 0);
       @include boxMargin($space, $value, 0);
@@ -116,8 +137,33 @@
         flex-grow: $k;
       }
     }
+    @each $overflowValue in (hidden, visible, auto, scroll) {
+      .u-box--overflow-#{$overflowValue}-0 {
+        overflow: $overflowValue;
+      }
+
+      .u-box--overflowX-#{$overflowValue}-0 {
+        overflow-x: $overflowValue;
+      }
+
+      .u-box--overflowY-#{$overflowValue}-0 {
+        overflow-y: $overflowValue;
+      }
+    }
   } @else {
     @media (min-width: #{$bp}px) {
+      .u-box--height-full-#{$i} {
+        height: 100%;
+      }
+      .u-box--height-half-#{$i} {
+        height: 50%;
+      }
+      .u-box--width-full-#{$i} {
+        width: 100%;
+      }
+      .u-box--width-half-#{$i} {
+        width: 50%;
+      }
       @each $value $space in $spacingMap {
         @include boxPadding($space, $value, $i);
         @include boxMargin($space, $value, $i);
@@ -149,6 +195,19 @@
       @for $k from 1 through 5 {
         .u-box--grow-#{$k}-#{$i} {
           flex-grow: $k;
+        }
+      }
+      @each $overflowValue in (hidden, visible, auto, scroll) {
+        .u-box--overflow-#{$overflowValue}-#{$i} {
+          overflow: $overflowValue;
+        }
+
+        .u-box--overflowX-#{$overflowValue}-#{$i} {
+          overflow-x: $overflowValue;
+        }
+
+        .u-box--overflowY-#{$overflowValue}-#{$i} {
+          overflow-y: $overflowValue;
         }
       }
     }

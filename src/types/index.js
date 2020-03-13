@@ -42,6 +42,7 @@ export const tokens = {
     'stretch',
   ],
   position: ['relative', 'absolute', 'fixed', 'sticky', 'static'],
+  overflow: ['hidden', 'visible', 'auto', 'scroll'],
 }
 
 export const validateResponsiveProps = (tokenValues) => (
@@ -73,3 +74,4 @@ export const display = validateResponsiveProps(tokens.display)
 export const alignItems = validateResponsiveProps(tokens.alignItems)
 export const justifyContent = validateResponsiveProps(tokens.justifyContent)
 export const position = validateResponsiveProps(tokens.position)
+export const overflow = validateResponsiveProps(tokens.overflow)

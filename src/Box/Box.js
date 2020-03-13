@@ -37,6 +37,12 @@ const Box = React.forwardRef(
       flexGrow,
       position,
       size,
+      minHeight,
+      height,
+      width,
+      overflow,
+      overflowX,
+      overflowY,
       wrap = false,
       ...props
     },
@@ -69,6 +75,12 @@ const Box = React.forwardRef(
       flexGrow,
       position,
       size,
+      minHeight,
+      height,
+      width,
+      overflow,
+      overflowX,
+      overflowY,
       wrap,
     })
 
@@ -90,7 +102,7 @@ Box.propTypes = {
   /**
    * Sets the background color
    */
-  background: t.oneOf(types.tokens.background),
+  background: t.oneOf([...types.tokens.background, t.string]),
   /**
    * Adds the given class name
    */
@@ -175,6 +187,26 @@ Box.propTypes = {
    * Applies shadow styles and/or borders
    */
   boxShadow: t.string,
+  /**
+   * Defines overflow behavior on X and Y axis
+   */
+  overflow: types.overflow,
+  /**
+   * Defines overflow behavior on X axis
+   */
+  overflowX: types.overflow,
+  /**
+   * Defines overflow behavior on Y axis
+   */
+  overflowY: types.overflow,
+  /**
+   * Applies a set height
+   */
+  height: types.spacing,
+  /**
+   * Applies a set width
+   */
+  width: types.spacing,
   /**
    * Applies flex wrapping (only applies to flex display)
    */
