@@ -1,9 +1,9 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
+import types from '../types'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
-import Inline from '../Inline/Inline'
 import Icon from '../Icon/Icon'
 import './button.css'
 
@@ -149,7 +149,7 @@ Button.propTypes = {
   /**
    * Sets the dimensions (width/height) of the icon
    */
-  iconSize: t.oneOf(['small', 'regular', 'large']),
+  iconSize: types.spacing,
   /**
    * Justifies/spaces text and icon at each end (space-between).
    */
