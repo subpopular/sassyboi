@@ -65,10 +65,6 @@
 
 .u-button--weight-link {
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   @include linkStyle();
 }
 
