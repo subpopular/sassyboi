@@ -1,5 +1,6 @@
 import React from 'react'
 import t from 'prop-types'
+import types from '../types'
 import classNames from 'classnames'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
@@ -49,7 +50,7 @@ Icon.propTypes = {
   /**
    * Sets the dimension (width/height) of the icon (passed to Box)
    */
-  size: t.string,
+  size: types.spacing,
 }
 
 export default Icon
