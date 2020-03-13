@@ -1,4 +1,5 @@
 import React from 'react'
+import t from 'prop-types'
 import cx from 'classnames'
 import Box from '../Box/Box'
 import './scrollbox.css'
@@ -31,6 +32,18 @@ const ScrollBox = ({
       </Box>
     </Box>
   )
+}
+
+ScrollBox.propTypes = {
+  /**
+   * Sets the Scrollbox to scroll horizontally through its overflow contents
+   */
+  scrollX: t.bool,
+
+  /**
+   * Sets the Scrollbox to scroll vertically through its overflow contents
+   */
+  scrollY: t.bool,
 }
 
 export default ScrollBox
