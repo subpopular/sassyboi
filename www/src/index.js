@@ -10,13 +10,13 @@ import {
   Divider,
   Stack,
   Text,
+  Icon,
+  Inline,
 } from 'sassyboi'
-import githubIcon from 'sassyboi/dist/icons/github.svg'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
 import {ThemeProvider} from './util/ThemeContext'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
-
 import './index.css'
 
 const theme = {}
@@ -41,6 +41,13 @@ const docPages = [
   'Textarea',
 ]
 
+var svgIcons = require.context('sassyboi/dist/icons', false, /.*\.svg$/)
+function requireAll(requireContext) {
+  return requireContext.keys().map(requireContext)
+}
+
+const icons = requireAll(svgIcons)
+
 const mdxComponents = {
   wrapper: DocLayout,
   h1: (props) => <Text heading as="h1" size="xlarge" {...props} />,
@@ -54,19 +61,18 @@ const mdxComponents = {
 }
 
 const App = () => {
-  console.log(githubIcon)
-
   return (
     <ThemeProvider theme={theme}>
       <Router>
         <Box paddingY="medium">
           <ContentBlock>
-            <Text heading size="standard">
-              Sassyboi Docs
-            </Text>
-            <svg>
-              <use xlinkHref={githubIcon.url}></use>
-            </svg>
+            <Inline justify="space-between">
+              <Text heading size="standard">
+                Sassyboi Docs
+              </Text>
+
+              <Icon name="github" />
+            </Inline>
           </ContentBlock>
         </Box>
 

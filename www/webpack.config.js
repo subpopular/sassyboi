@@ -65,12 +65,13 @@ module.exports = (env) => {
           use: [
             {
               loader: 'svg-sprite-loader',
+            },
+            {
+              loader: 'svgo-loader',
               options: {
-                extract: true,
-                publicPath: '/static/',
+                plugins: [{inlineStyles: true}],
               },
             },
-            'svgo-loader',
           ],
         },
         {

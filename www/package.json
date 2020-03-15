@@ -42,6 +42,8 @@
     "copy-webpack-plugin": "^5.1.1",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "loader-utils": "^1.4.0",
+    "pascal-case": "^3.1.1",
     "svg-sprite-loader": "^4.2.1",
     "webpack": "^4.41.6",
     "webpack-cli": "^3.3.11",

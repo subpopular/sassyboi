@@ -27,6 +27,24 @@ module.exports = {
     module: {
       rules: [
         {
+          test: /\.svg$/,
+          use: [
+            {
+              loader: 'svg-sprite-loader',
+              options: {
+                extract: true,
+                publicPath: '/static/',
+              },
+            },
+            {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [{inlineStyles: true}],
+              },
+            },
+          ],
+        },
+        {
           test: /\.css?$/,
           exclude: /node_modules/,
           use: [
@@ -43,6 +61,6 @@ module.exports = {
         },
       ],
     },
-    plugins: [new SpriteLoaderPlugin()],
+    plugins: [new SpriteLoaderPlugin({plainSprite: true})],
   }),
 }

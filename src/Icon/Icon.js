@@ -8,6 +8,7 @@ import './icon.css'
 
 const Icon = ({
   name,
+  url,
   size = 'gutter',
   tone = 'neutral',
   className,
@@ -36,7 +37,7 @@ const Icon = ({
 
   return (
     <Box as="svg" size={size} {...a11y} className={classes} {...props}>
-      <use role="presentation" xlinkHref={`#${name}`} />
+      <use role="presentation" xlinkHref={url ? url : `#${name}`} />
     </Box>
   )
 }
@@ -45,7 +46,12 @@ Icon.propTypes = {
   /**
    * SVG symbol ID from sprite
    */
-  name: t.string.isRequired,
+  name: t.string,
+
+  /**
+   * SVG sprite url
+   */
+  url: t.string,
 
   /**
    * Sets the dimension (width/height) of the icon (passed to Box)
