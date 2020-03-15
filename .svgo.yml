@@ -23,6 +23,8 @@ plugins:
   - prefixIds: true
   - removeAttrs:
       attrs: '(fill|stroke|stroke.*|class|xmlns)'
+  - addClassesToSVGElement:
+      className: '_feather'
 # configure the indent (default 4 spaces) used by `--pretty` here:
 #
 # @see https://github.com/svg/svgo/blob/master/lib/svgo/js2svg.js#L6 for more config options
