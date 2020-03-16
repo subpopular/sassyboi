@@ -18,7 +18,7 @@ const Text = ({
   ...props
 }) => {
   const backgroundContext = useBackground()
-  console.log('[will] props', Object.keys(props))
+
   if (process.env.NODE_ENV === 'development' && Object.keys(props).length > 0) {
     Object.keys(props).forEach((prop) => {
       if (prop.includes('padding') || prop.includes('margin')) {
