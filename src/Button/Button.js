@@ -2,10 +2,11 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
+import {useStyles} from '../Provider'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
-import './button.css'
+import s from './button.css'
 
 const bg = (weight) => {
   switch (weight) {
@@ -34,18 +35,23 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
+    const styles = useStyles()
+
     const hasChildren = React.Children.count(children) > 0
     const iconOnly = !hasChildren && (icon || iconRight)
 
     const classes = cx(
       'u-button',
-      `u-button--weight-${weight}`,
+      `weight-${weight}`,
       {
-        [`u-button--size-${size}`]: size,
-        [`u-button--icon-only`]: iconOnly,
+        [`size-${size}`]: size,
+        [`icon-only`]: iconOnly,
       },
       className
     )
+      .split(' ')
+      .map((c) => styles[c] || c)
+      .join(' ')
 
     const paddings = {
       xsmall: {x: 'small', y: 'xxsmall'},
@@ -66,7 +72,7 @@ const Button = React.forwardRef(
     const text = hasChildren && (
       <Box>
         <Text
-          className="u-button__text"
+          className={styles['u-button__text']}
           as="div"
           baseline={true}
           size={fontSizes[size]}
@@ -74,6 +80,7 @@ const Button = React.forwardRef(
           align="center"
           weight="regular"
           display={children.props && children.props.display}
+          normalize
           block
         >
           {children}
@@ -95,7 +102,7 @@ const Button = React.forwardRef(
         {...props}
       >
         <Box
-          className="u-button__inner"
+          className={styles['u-button__inner']}
           display="flex"
           align="center"
           justify={innerJustify ? 'space-between' : 'center'}
@@ -104,7 +111,7 @@ const Button = React.forwardRef(
             <Icon
               name={icon}
               size={iconSize}
-              className={`u-icon--${icon}`}
+              className={styles[`u-icon--${icon}`]}
               tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
               marginRight={hasChildren ? 'xsmall' : undefined}
             />
@@ -116,7 +123,7 @@ const Button = React.forwardRef(
             <Icon
               name={iconRight}
               size={iconSize}
-              className={`u-icon--${iconRight}`}
+              className={styles[`u-icon--${iconRight}`]}
               tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
               marginLeft={hasChildren ? 'xsmall' : undefined}
             />

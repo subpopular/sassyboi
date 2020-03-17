@@ -101,7 +101,7 @@ const useBoxStyles = ({
     classes(overflow, 'overflow'),
     classes(overflowX, 'overflowX'),
     classes(overflowY, 'overflowY'),
-    {[`bg--${background}`]: background, [`u-box--wrap`]: wrap},
+    {[`bg-${background}`]: background, [`wrap`]: wrap},
     {
       [`shadow--${boxShadow}`]:
         boxShadow && (!background || background === 'transparent'),

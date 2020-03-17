@@ -1,0 +1,67 @@
+@mixin getPadding($space, $v, $i) {
+  .p-#{$space}-#{$i} {
+    padding: #{$value}px;
+  }
+  .px-#{$space}-#{$i} {
+    padding-left: #{$value}px;
+    padding-right: #{$value}px;
+  }
+  .py-#{$space}-#{$i} {
+    padding-top: #{$value}px;
+    padding-bottom: #{$value}px;
+  }
+  .pt-#{$space}-#{$i} {
+    padding-top: #{$value}px;
+  }
+  .pr-#{$space}-#{$i} {
+    padding-right: #{$value}px;
+  }
+  .pb-#{$space}-#{$i} {
+    padding-bottom: #{$value}px;
+  }
+  .pl-#{$space}-#{$i} {
+    padding-left: #{$value}px;
+  }
+}
+
+@mixin getMargin($space, $v, $i) {
+  .m-#{$space}-#{$i} {
+    margin: #{$value}px;
+  }
+  .mx-#{$space}-#{$i} {
+    margin-left: #{$value}px;
+    margin-right: #{$value}px;
+  }
+  .my-#{$space}-#{$i} {
+    margin-top: #{$value}px;
+    margin-bottom: #{$value}px;
+  }
+  .mt-#{$space}-#{$i} {
+    margin-top: #{$value}px;
+  }
+  .mr-#{$space}-#{$i} {
+    margin-right: #{$value}px;
+  }
+  .mb-#{$space}-#{$i} {
+    margin-bottom: #{$value}px;
+  }
+  .ml-#{$space}-#{$i} {
+    margin-left: #{$value}px;
+  }
+}
+
+@each $bp $i in $breakpoints {
+  @if $i == 0 {
+    @each $value $space in $spacingMap {
+      @include getPadding($space, $value, 0);
+      @include getMargin($space, $value, 0);
+    }
+  } @else {
+    @media (min-width: #{$bp}px) {
+      @each $value $space in $spacingMap {
+        @include getPadding($space, $value, $i);
+        @include getMargin($space, $value, $i);
+      }
+    }
+  }
+}

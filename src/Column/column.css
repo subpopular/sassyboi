@@ -1,17 +1,17 @@
-@import '../base';
+@import '../utils';
 
 @supports (grid-area: auto) {
   @each $bp $i in $breakpoints {
     @if $i == 0 {
       @for $j from 1 through 24 {
-        .u-col--span-#{$j}-0 {
+        .span-#{$j}-0 {
           grid-column: span $j;
         }
       }
     } @else {
       @media (min-width: #{$bp}px) {
         @for $j from 1 through 24 {
-          .u-col--span-#{$j}-#{$i} {
+          .span-#{$j}-#{$i} {
             grid-column: span $j;
           }
         }
@@ -20,13 +20,13 @@
   }
 
   @media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
-    .u-cols--collapse-0 > .u-col {
+    .collapse-0 > .u-col {
       grid-column: 1;
     }
   }
 
   @media (max-width: calc(map-get($breakpoints, 2) - 1)px) {
-    .u-cols--collapse-1 > .u-col {
+    .collapse-1 > .u-col {
       grid-column: 1;
     }
   }

@@ -1,9 +1,13 @@
 import React from 'react'
-import SyntaxHighlighter from 'react-syntax-highlighter'
+import {Light as SyntaxHighlighter} from 'react-syntax-highlighter'
+import js from 'react-syntax-highlighter/dist/esm/languages/hljs/javascript'
+
 import {googlecode as syntaxTheme} from 'react-syntax-highlighter/dist/esm/styles/hljs'
 import {Link} from 'react-router-dom'
 import {Box, Button, Text, Stack, Inline, Icon} from 'sassyboi'
 import PropsTable from './PropsTable'
+
+SyntaxHighlighter.registerLanguage('javascript', js)
 
 const DocLayout = ({children, meta}) => {
   const {

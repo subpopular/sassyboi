@@ -1,0 +1,34 @@
+@each $color $tone in $base-colors {
+  .bg-#{$tone} {
+    background-color: $color;
+  }
+
+  .color-#{$tone} {
+    color: $color;
+    fill: $color;
+  }
+
+  .color-neutral.color-neutral-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, neutral),
+      map-get($base-colors, neutralInverted)
+    );
+  }
+
+  .color-secondary.color-secondary-on-#{$tone} {
+    color: isLight(
+      $color,
+      map-get($base-colors, secondary),
+      map-get($base-colors, secondaryInverted)
+    );
+  }
+}
+
+.bg-transparent {
+  background-color: transparent;
+}
+
+.bg-white {
+  background-color: white;
+}

@@ -1,7 +1,8 @@
 import React from 'react'
 import t from 'prop-types'
-import * as types from '../types'
 import cx from 'classnames'
+import * as types from '../types'
+import {useStyles} from '../Provider'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
 import './text.css'
@@ -14,9 +15,11 @@ const Text = ({
   heading = false,
   baseline = true,
   block = false,
+  normalize = false,
   className,
   ...props
 }) => {
+  const styles = useStyles()
   const backgroundContext = useBackground()
 
   const background =
@@ -30,15 +33,19 @@ const Text = ({
       'u-text-heading': heading,
       'u-text--baseline': baseline,
       'u-text--block': block,
-      [`tone--${tone}-on-${background}`]: background,
-      [`tone--${tone}`]: tone,
+      [`color-${tone}-on-${background}`]: background,
+      [`color-${tone}`]: tone,
       [`u-text--weight-${weight}`]: weight !== 'regular',
       [`u-text--${size}`]: !heading,
       [`u-text-heading--${size}`]: heading,
+      normalizeLineHeight: normalize,
     },
     `u-text--align-${align}`,
     className
   )
+    .split(' ')
+    .map((c) => styles[c] || c)
+    .join(' ')
 
   return <Box className={classes} as="p" {...props} />
 }

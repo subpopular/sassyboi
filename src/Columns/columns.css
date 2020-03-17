@@ -6,36 +6,36 @@
   @each $bp $i in $breakpoints {
     @if $i == 0 {
       @for $j from 1 through 24 {
-        .u-cols--cols-#{$j}-0 {
+        .cols-#{$j}-0 {
           grid-template-columns: repeat($j, 1fr);
         }
       }
       @each $value $space in $spacingMap {
-        .u-cols--gap-#{$space}-0 {
+        .gap-#{$space}-0 {
           grid-gap: #{$value}px;
         }
-        .u-cols--row-gap-#{$space}-0 {
+        .row-gap-#{$space}-0 {
           grid-row-gap: #{$value}px;
         }
-        .u-cols--col-gap-#{$space}-0 {
+        .col-gap-#{$space}-0 {
           grid-column-gap: #{$value}px;
         }
       }
     } @else {
       @media (min-width: #{$bp}px) {
         @for $j from 1 through 24 {
-          .u-cols--cols-#{$j}-#{$i} {
+          .cols-#{$j}-#{$i} {
             grid-template-columns: repeat($j, 1fr);
           }
         }
         @each $value $space in $spacingMap {
-          .u-cols--gap-#{$space}-#{$i} {
+          .gap-#{$space}-#{$i} {
             grid-gap: #{$value}px;
           }
-          .u-cols--row-gap-#{$space}-#{$i} {
+          .row-gap-#{$space}-#{$i} {
             grid-row-gap: #{$value}px;
           }
-          .u-cols--col-gap-#{$space}-#{$i} {
+          .col-gap-#{$space}-#{$i} {
             grid-column-gap: #{$value}px;
           }
         }
@@ -44,13 +44,13 @@
   }
 
   @media (max-width: calc(map-get($breakpoints, 1) - 1)px) {
-    .u-cols--collapse-0 {
+    .collapse-0 {
       grid-template-columns: 1fr;
     }
   }
 
   @media (max-width: calc(map-get($breakpoints, 2) - 1)px) {
-    .u-cols--collapse-1 {
+    .collapse-1 {
       grid-template-columns: 1fr;
     }
   }

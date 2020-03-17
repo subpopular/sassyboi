@@ -3,13 +3,19 @@ const HtmlWebPackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
+const TerserPlugin = require('terser-webpack-plugin')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+const cssnano = require('cssnano')
 const sassyboi = require('sassyboi/dist/postcss-sassyboi')
 
 const dist = path.resolve(__dirname, 'dist')
 
-module.exports = (env) => {
+module.exports = (env, argv) => {
   const prod =
-    (env && env.mode === 'production') || process.env.NODE_ENV === 'production'
+    (env && env.mode === 'production') ||
+    process.env.NODE_ENV === 'production' ||
+    (argv && argv.mode === 'production')
       ? true
       : undefined
 
@@ -26,6 +32,7 @@ module.exports = (env) => {
       new CopyPlugin([{from: '_redirects'}]),
       new MiniCssExtractPlugin(),
       ...plugins,
+      new BundleAnalyzerPlugin(),
     ]
   }
 
@@ -44,6 +51,7 @@ module.exports = (env) => {
         {
           test: /\.(js|jsx)$/,
           exclude: /node_modules/,
+          // include: [/node_modules\/sassyboi/],
           use: {
             loader: 'babel-loader',
           },
@@ -78,7 +86,18 @@ module.exports = (env) => {
           test: /\.css$/,
           use: [
             prod ? MiniCssExtractPlugin.loader : 'style-loader',
-            {loader: 'css-loader', options: {importLoaders: 1}},
+            {
+              loader: 'css-loader',
+              options: {
+                importLoaders: 1,
+                modules: {
+                  mode: 'local',
+                  localIdentName: '[hash:base64:6]',
+                  context: path.resolve(__dirname, 'src'),
+                  hashPrefix: 'sb_',
+                },
+              },
+            },
             {
               loader: 'postcss-loader',
               options: {
@@ -87,6 +106,9 @@ module.exports = (env) => {
                   sassyboi({
                     from: path.resolve(__dirname, '../'),
                   }),
+                  cssnano({
+                    preset: 'default',
+                  }),
                 ],
               },
             },
@@ -94,6 +116,12 @@ module.exports = (env) => {
         },
       ],
     },
+    ...(prod && {
+      optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+      },
+    }),
     plugins,
   }
 }

@@ -2,6 +2,7 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
+import {useStyles} from '../Provider'
 import {resolveResponsiveClassnames} from '../util'
 import Box from '../Box/Box'
 
@@ -14,6 +15,7 @@ const Inline = ({
   children,
   ...props
 }) => {
+  const styles = useStyles()
   const classes = cx(
     'u-inline',
     resolveResponsiveClassnames('inline', space, 'space'),
@@ -23,10 +25,16 @@ const Inline = ({
     },
     className
   )
+    .split(' ')
+    .map((c) => styles[c] || c)
+    .join(' ')
 
   return (
     <Box
-      className={cx(resolveResponsiveClassnames('inline', space, 'container'))}
+      className={cx(resolveResponsiveClassnames('inline', space, 'container'))
+        .split(' ')
+        .map((c) => styles[c] || c)
+        .join(' ')}
     >
       <Box
         align="center"
@@ -41,7 +49,7 @@ const Inline = ({
             return (
               <Box
                 key={child.key + i}
-                className="u-inline__item"
+                className={styles['u-inline__item']}
                 paddingLeft={space}
                 paddingTop={space}
                 display={child.props && child.props.display}

@@ -9,6 +9,7 @@ import functions from 'postcss-functions'
 import cssImports from 'postcss-import'
 import contrast from 'postcss-contrast'
 import colorFunctions from 'postcss-color-function'
+import modules from 'postcss-modules'
 import defaultConfig from './config'
 import {isLight, mod, baseliner} from './style-functions'
 

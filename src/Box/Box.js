@@ -2,9 +2,9 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
+import {useStyles} from '../Provider'
 import {renderBackgroundProvider} from '../util/BackgroundContext'
 import useBoxStyles from './useBoxStyles'
-
 import './box.css'
 
 const Box = React.forwardRef(
@@ -48,6 +48,7 @@ const Box = React.forwardRef(
     },
     ref
   ) => {
+    const styles = useStyles()
     const boxStyles = useBoxStyles({
       as,
       background,
@@ -85,7 +86,10 @@ const Box = React.forwardRef(
     })
 
     const element = React.createElement(as, {
-      className: cx(boxStyles, className),
+      className: cx(boxStyles, className)
+        .split(' ')
+        .map((c) => styles[c] || c)
+        .join(' '),
       ref,
       ...props,
     })

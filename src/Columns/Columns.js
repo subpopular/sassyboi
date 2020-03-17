@@ -1,9 +1,10 @@
 import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
-import {resolveResponsiveClassnames} from '../util'
-import Box from '../Box/Box'
 import * as types from '../types'
+import {resolveResponsiveClassnames} from '../util'
+import {useStyles} from '../Provider'
+import Box from '../Box/Box'
 import './columns.css'
 
 const Columns = ({
@@ -17,6 +18,7 @@ const Columns = ({
   children,
   ...props
 }) => {
+  const styles = useStyles()
   const classes = cx(
     'u-cols',
     resolveResponsiveClassnames('cols', cols, 'cols'),
@@ -28,6 +30,9 @@ const Columns = ({
     },
     className
   )
+    .split(' ')
+    .map((c) => styles[c] || c)
+    .join(' ')
 
   return (
     <Box className={classes} {...props}>

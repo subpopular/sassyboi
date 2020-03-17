@@ -1,16 +1,15 @@
-@import '../base';
+@import '../utils';
 
-.u-icon {
+.icon {
   display: block;
-
-  &:not([class*='tone--']) {
-    color: inherit;
-  }
-
   pointer-events: none;
 }
 
-._feather {
+.inherit {
+  color: inherit;
+}
+
+:global(._feather) {
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;

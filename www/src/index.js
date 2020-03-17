@@ -12,14 +12,13 @@ import {
   Text,
   Icon,
   Inline,
+  SassyboiProvider,
 } from 'sassyboi'
 import {BrowserRouter as Router, Switch, Route, Link} from 'react-router-dom'
-import {ThemeProvider} from './util/ThemeContext'
 import DocLayout from './components/DocLayout'
 import ComponentRoutes from './components/ComponentRoutes'
-import './index.css'
 
-const theme = {}
+import styles from './index.css'
 
 const docPages = [
   'Box',
@@ -41,12 +40,8 @@ const docPages = [
   'Textarea',
 ]
 
-var svgIcons = require.context('sassyboi/dist/icons', false, /.*\.svg$/)
-function requireAll(requireContext) {
-  return requireContext.keys().map(requireContext)
-}
-
-const icons = requireAll(svgIcons)
+// const svgIcons = require.context('sassyboi/dist/icons', false, /.*\.svg$/)
+// svgIcons.keys().map(svgIcons)
 
 const mdxComponents = {
   wrapper: DocLayout,
@@ -62,7 +57,7 @@ const mdxComponents = {
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <SassyboiProvider styles={styles}>
       <Router>
         <Box paddingY="medium">
           <ContentBlock>
@@ -126,7 +121,7 @@ const App = () => {
           </ContentBlock>
         </Stack>
       </Router>
-    </ThemeProvider>
+    </SassyboiProvider>
   )
 }
 

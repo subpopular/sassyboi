@@ -1,4 +1,4 @@
-@import '../base';
+@import '../utils';
 
 .u-text {
   font-family: $font-family;
@@ -77,6 +77,10 @@
 
 .u-text:focus {
   outline: none;
+}
+
+.normalizeLineHeight {
+  line-height: 1;
 }
 
 .u-text.focus-visible:not(.u-text--baseline) {
