@@ -32,7 +32,6 @@ module.exports = (env, argv) => {
       new CopyPlugin([{from: '_redirects'}]),
       new MiniCssExtractPlugin(),
       ...plugins,
-      new BundleAnalyzerPlugin(),
     ]
   }
 

@@ -40,8 +40,8 @@ const docPages = [
   'Textarea',
 ]
 
-// const svgIcons = require.context('sassyboi/dist/icons', false, /.*\.svg$/)
-// svgIcons.keys().map(svgIcons)
+const svgIcons = require.context('sassyboi/dist/icons', false, /.*\.svg$/)
+svgIcons.keys().map(svgIcons)
 
 const mdxComponents = {
   wrapper: DocLayout,
