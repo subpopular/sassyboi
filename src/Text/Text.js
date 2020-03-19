@@ -19,6 +19,16 @@ const Text = ({
 }) => {
   const backgroundContext = useBackground()
 
+  if (process.env.NODE_ENV === 'development' && Object.keys(props).length > 0) {
+    Object.keys(props).forEach((prop) => {
+      if (prop.includes('padding') || prop.includes('margin')) {
+        console.warn(
+          `Warning: You've added ${prop} to a Text Component, this could cause issues with the component's baseline cropping`
+        )
+      }
+    })
+  }
+
   const background =
     backgroundContext && backgroundContext !== 'transparent'
       ? backgroundContext
