@@ -2,7 +2,6 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
-import {useStyles} from '../Provider'
 import Box from '../Box/Box'
 import './stack.css'
 
@@ -13,11 +12,7 @@ const Stack = ({
   children,
   ...props
 }) => {
-  const styles = useStyles()
   const classes = cx('u-stack', className)
-    .split(' ')
-    .map((c) => styles[c] || c)
-    .join(' ')
 
   return (
     <Box className={classes} align="stretch" justify="flex-start" {...props}>
@@ -30,7 +25,7 @@ const Stack = ({
                 <Box
                   {...(child.props.display && {display: child.props.display})}
                   marginTop={space}
-                  className={styles['u-stack__divider']}
+                  className={'u-stack__divider'}
                 />
               )}
 
@@ -40,7 +35,7 @@ const Stack = ({
                   alignSelf: child.props.alignSelf,
                 })}
                 marginTop={i > 0 ? space : undefined}
-                className={styles['u-stack__item']}
+                className={'u-stack__item'}
               >
                 {child}
               </Box>

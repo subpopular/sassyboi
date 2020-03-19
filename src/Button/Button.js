@@ -2,11 +2,10 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
-import {useStyles} from '../Provider'
 import Box from '../Box/Box'
 import Text from '../Text/Text'
 import Icon from '../Icon/Icon'
-import s from './button.css'
+import './button.css'
 
 const bg = (weight) => {
   switch (weight) {
@@ -35,8 +34,6 @@ const Button = React.forwardRef(
     },
     ref
   ) => {
-    const styles = useStyles()
-
     const hasChildren = React.Children.count(children) > 0
     const iconOnly = !hasChildren && (icon || iconRight)
 
@@ -49,9 +46,6 @@ const Button = React.forwardRef(
       },
       className
     )
-      .split(' ')
-      .map((c) => styles[c] || c)
-      .join(' ')
 
     const paddings = {
       xsmall: {x: 'small', y: 'xxsmall'},
@@ -72,7 +66,7 @@ const Button = React.forwardRef(
     const text = hasChildren && (
       <Box>
         <Text
-          className={styles['u-button__text']}
+          className={'u-button__text'}
           as="div"
           baseline={true}
           size={fontSizes[size]}
@@ -102,7 +96,7 @@ const Button = React.forwardRef(
         {...props}
       >
         <Box
-          className={styles['u-button__inner']}
+          className={'u-button__inner'}
           display="flex"
           align="center"
           justify={innerJustify ? 'space-between' : 'center'}
@@ -111,7 +105,7 @@ const Button = React.forwardRef(
             <Icon
               name={icon}
               size={iconSize}
-              className={styles[`u-icon--${icon}`]}
+              className={`u-icon--${icon}`}
               tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
               marginRight={hasChildren ? 'xsmall' : undefined}
             />
@@ -123,7 +117,7 @@ const Button = React.forwardRef(
             <Icon
               name={iconRight}
               size={iconSize}
-              className={styles[`u-icon--${iconRight}`]}
+              className={`u-icon--${iconRight}`}
               tone={props.tone || (weight === 'link' ? 'link' : 'neutral')}
               marginLeft={hasChildren ? 'xsmall' : undefined}
             />

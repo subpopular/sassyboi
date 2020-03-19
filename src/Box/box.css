@@ -1,8 +1,5 @@
 @import '../utils';
 
-.u-box {
-}
-
 @mixin boxDisplay($i) {
   .display-none-#{$i} {
     display: none;

@@ -3,7 +3,6 @@
     position: relative;
     display: block;
 
-    /* TODO: border color theme configs */
     border: 1px solid #cccccc;
     border-radius: 50%;
     background: transparent;
@@ -39,7 +38,7 @@
       }
     }
 
-    &.focus-visible {
+    &:global(.focus-visible) {
       outline: none;
       box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
     }

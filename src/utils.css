@@ -8,7 +8,7 @@
   font-size: calc($size * 1px);
   line-height: calc($lineHeight * 1px);
 
-  &.u-text--baseline {
+  &.baseline {
     transform: $transform;
     padding-top: 1px;
     &:before {
@@ -17,7 +17,7 @@
       height: 0;
       margin-top: $marginTop;
     }
-    &.focus-visible:after {
+    &:global(.focus-visible):after {
       content: '';
       display: block;
       border: 3px solid color(map-get($base-colors, focus) a(30%));

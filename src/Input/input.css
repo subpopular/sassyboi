@@ -45,7 +45,7 @@
     border-bottom-style: solid;
     border-color: #e1e1e1;
 
-    &.focus-visible {
+    &:global(.focus-visible) {
       outline: none;
       border-color: map-get($base-colors, formAccent);
     }
@@ -73,7 +73,7 @@
       padding: 7px 10px;
       border: 1px solid #e1e1e1;
       border-radius: map-get(map-get($border, radius), standard);
-      &.focus-visible {
+      &:global(.focus-visible) {
         box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
       }
     }
@@ -81,7 +81,7 @@
       border-radius: map-get(map-get($border, radius), standard);
       padding: 7px #{$space-large}px 7px 10px;
       border: 1px solid #e1e1e1;
-      &.focus-visible {
+      &:global(.focus-visible) {
         box-shadow: 0 0 0 3px color(map-get($base-colors, formAccent) a(40%));
       }
     }

@@ -45,15 +45,15 @@
 
 @each $color $tone in $base-colors {
   .u-button.bg-#{$tone} {
-    &.focus-visible {
+    &:global(.focus-visible) {
       outline: none;
       box-shadow: 0 0 0 3px color($color a(40%));
     }
   }
 }
 
-.u-button.bg--transparent {
-  &.focus-visible {
+.u-button.bg-transparent {
+  &:global(.focus-visible) {
     outline: none;
     box-shadow: 0 0 0 3px color(map-get($base-colors, focus) a(40%));
   }
@@ -64,20 +64,4 @@
 .weight-regular {
 }
 .weight-weak {
-}
-
-.weight-link {
-  position: relative;
-  @include linkStyle();
-}
-
-/* TODO: consider making a component for pill button/link */
-.weight-pill {
-  border-radius: 24px;
-  & .size-xsmall {
-    border-radius: 18px;
-  }
-  & .size-small {
-    border-radius: 20px;
-  }
 }

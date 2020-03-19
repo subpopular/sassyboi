@@ -1,0 +1,16 @@
+.selected.selected {
+  background-color: color(map-get($base-colors, brandAccent) tint(93%));
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: auto;
+    border-left: 4px solid map-get($base-colors, brandAccent);
+  }
+}
+
+.hover:not(.selected):hover {
+  background-color: color(map-get($base-colors, brandAccent) tint(95%));
+}

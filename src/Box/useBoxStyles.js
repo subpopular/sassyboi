@@ -73,7 +73,6 @@ const useBoxStyles = ({
     !marginClasses && !marginXClasses && classes(resolvedMarginLeft, 'ml')
 
   return [
-    'u-box',
     paddingClasses,
     paddingYClasses,
     paddingXClasses,

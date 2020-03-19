@@ -58,8 +58,8 @@ const pluginConfig = {
 
 const configs = [mainConfig]
 
-if (isProduction) {
-  configs.push(pluginConfig)
-}
+// if (isProduction) {
+configs.push(pluginConfig)
+// }
 
 export default configs

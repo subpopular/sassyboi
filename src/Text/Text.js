@@ -2,7 +2,6 @@ import React from 'react'
 import t from 'prop-types'
 import cx from 'classnames'
 import * as types from '../types'
-import {useStyles} from '../Provider'
 import {useBackground} from '../util/BackgroundContext'
 import Box from '../Box/Box'
 import './text.css'
@@ -14,12 +13,12 @@ const Text = ({
   align = 'left',
   heading = false,
   baseline = true,
-  block = false,
+  inline = false,
   normalize = false,
+  block,
   className,
   ...props
 }) => {
-  const styles = useStyles()
   const backgroundContext = useBackground()
 
   const background =
@@ -29,25 +28,27 @@ const Text = ({
 
   const classes = cx(
     {
-      'u-text': !heading,
-      'u-text-heading': heading,
-      'u-text--baseline': baseline,
-      'u-text--block': block,
+      text: !heading,
+      heading: heading,
+      baseline: baseline,
       [`color-${tone}-on-${background}`]: background,
       [`color-${tone}`]: tone,
-      [`u-text--weight-${weight}`]: weight !== 'regular',
-      [`u-text--${size}`]: !heading,
-      [`u-text-heading--${size}`]: heading,
+      [`weight-${weight}`]: weight !== 'regular',
+      [`text-${size}`]: !heading,
+      [`heading-${size}`]: heading,
       normalizeLineHeight: normalize,
     },
-    `u-text--align-${align}`,
+    `textAlign-${align}`,
     className
   )
-    .split(' ')
-    .map((c) => styles[c] || c)
-    .join(' ')
-
-  return <Box className={classes} as="p" {...props} />
+  return (
+    <Box
+      className={classes}
+      as="p"
+      display={inline ? 'inline' : 'block'}
+      {...props}
+    />
+  )
 }
 
 Text.propTypes = {
@@ -76,7 +77,11 @@ Text.propTypes = {
    */
   baseline: t.bool,
   /**
-   * Applies block level styling
+   * Applies inline level styling (block by default regardless of element type)
+   */
+  inline: t.bool,
+  /**
+   * Deprecated prop! Block is by default, use `inline` as needed.
    */
   block: t.bool,
 }

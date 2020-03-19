@@ -20,10 +20,10 @@ const DocLayout = ({children, meta}) => {
   } = meta
 
   return (
-    <Stack space="xlarge" paddingBottom="xxlarge">
+    <Stack space="xlarge" paddingY="xxlarge">
       <Inline align="flex-start" justify="space-between">
         <Stack>
-          <Text heading size="xlarge">
+          <Text heading size="xlarge" weight="strong">
             {name}
           </Text>
           <Text>{description}</Text>
