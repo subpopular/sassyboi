@@ -1,3 +1,4 @@
+const path = require('path')
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin')
 const postcssSassyboi = require('./dist/postcss-sassyboi')
 
@@ -27,14 +28,25 @@ module.exports = {
     module: {
       rules: [
         {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          use: [
+            {
+              loader: 'babel-loader',
+              options: {
+                presets: [
+                  ['@babel/preset-env', {modules: false}],
+                  '@babel/preset-react',
+                ],
+              },
+            },
+          ],
+        },
+        {
           test: /\.svg$/,
           use: [
             {
               loader: 'svg-sprite-loader',
-              options: {
-                extract: true,
-                publicPath: '/static/',
-              },
             },
             {
               loader: 'svgo-loader',
@@ -54,7 +66,11 @@ module.exports = {
               loader: 'postcss-loader',
               options: {
                 syntax: 'postcss-scss',
-                plugins: [postcssSassyboi()],
+                plugins: [
+                  postcssSassyboi({
+                    from: path.resolve(__dirname, '../'),
+                  }),
+                ],
               },
             },
           ],
