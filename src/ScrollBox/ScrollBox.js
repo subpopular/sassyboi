@@ -11,7 +11,7 @@ const ScrollBox = ({
   children,
   ...props
 }) => {
-  const classes = cx('u-scrollbox', className)
+  const classes = cx(className)
 
   return (
     <Box
